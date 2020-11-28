@@ -26,22 +26,16 @@ npm --version
 
 ### Creation du repo
 
-Pour te faciliter la vie ce repo est un template, il te suffit de cliquer sur le bouton **Deploy to netlify** pour créer un repo à partir de ce boilerplate:
+Aller sur le repo dans ton github, copier le lien du repo, puis dans ton dossier de projets :
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/theodo/dojo-escape-game"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+```bash
+git clone https://github.com/anaisberg/dojo-escape-game.git
+```
+maintenant tu as récupéré le projet, tu peux aller dans le dossier
 
-Tu vas devoir te créer un compte avec netlify (les quotas gratuit pour développeurs sont très généreux), tu peux utiliser ton compte github comme single sign-on.
-
-Une fois fait, tu auras un repo perso pour le projet et ton site sera déployé automatiquement sur netlify à chaque fois que tu push des changement sur la branche master.
-
-![Déploiement sur netlify](deploy_to_netlify.png)
-
-Le lien de ton site s'affiche sur netlify. Ie: https://<NOM_RANDOM>.netlify.app.
-
-Dernière chose à faire changer la visibilité de ton repo en privé dans les settings. C'est pour éviter que d'autres ne te volent ton code 😈 !
-
-Tu peux maintenant cloner ton repo localement pour commencer à développer. Pour le trouver, il faut aller dans tes repos personnels Github puis trouver `dojo-escape-game`.
-
+```bash
+cd dojo-escape-game
+```
 ### Développer
 
 Pour développer sur le projet, il reste à installer les outils qui vont transpiler les sources placées dans [src][./src] en un site web pour travailler localement.
@@ -62,6 +56,11 @@ npm start
 
 Avec l'integration netlify, il te suffit de pousser des changements sur la branche master de ton repo github pour deployer la nouvelle version.
 
+```bash
+git add .
+git commit -m ':gitmoji adapté: fonctionnalité'
+git push
+```
 ## Structure
 
 La page est un simple fichier HTML : `src/index.html`.
