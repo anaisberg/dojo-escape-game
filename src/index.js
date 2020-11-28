@@ -4,24 +4,29 @@ import { addAction } from './Interface/Action'
 
 const main = () => {
   const world = new World('World')
+  const rooms = [];
 
-  const room1 = world.createRoom({ name: 'room 1', height: 2 })
-  const room2 = world.createRoom({ name: 'room 2', xPos: 1 })
-  const room3 = world.createRoom({
-    name: 'room 3',
-    xPos: 1,
-    yPos: 1,
-    color: 'black',
-  })
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
+      const room = world.createRoom({
+        name: 'room ' + (i + j + 1),
+        width: 1,
+        height: 1,
+        xPos: i,
+        yPos: j,
+      });
+      rooms.push(room);
+    }
+  }
 
   const player = world.createPlayer('John Doe')
 
   world.createMoveAction(
     {
       text: 'Move to room 1',
-      isEnabled: () => player.currentRoom === room2,
+      isEnabled: () => player.currentRoom === rooms[1],
     },
-    room1
+    rooms[0]
   )
 
   world.createMoveAction(
@@ -34,9 +39,9 @@ const main = () => {
           }, 1200)
           resolve()
         }),
-      isEnabled: () => player.currentRoom === room2 && room3.color !== 'black',
+      isEnabled: () => player.currentRoom === rooms[1] && rooms[2].color !== 'black',
     },
-    room3
+    rooms[2]
   )
 
   world.createAction({
@@ -46,11 +51,11 @@ const main = () => {
         say(`${player.name} searches the room ...`)
         setTimeout(() => {
           say(`${player.name} found a little trap door to another room`)
-          room3.updateColor()
+          rooms[2].updateColor()
           resolve()
         }, 3000)
       }),
-    isEnabled: () => player.currentRoom === room2 && room3.color === 'black',
+    isEnabled: () => player.currentRoom === rooms[1] && rooms[2].color === 'black',
   })
 
   setTimeout(() => {
@@ -59,10 +64,10 @@ const main = () => {
       world.createMoveAction(
         {
           text: 'Move to room 2',
-          isEnabled: () => player.currentRoom === room1,
+          isEnabled: () => player.currentRoom === rooms[0],
           world,
         },
-        room2
+        rooms[1]
       )
     )
   }, 1200)
