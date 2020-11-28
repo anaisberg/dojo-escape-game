@@ -1,6 +1,10 @@
 import { World } from './Game/World'
 import { say } from './Interface/Text'
 import { addAction } from './Interface/Action'
+import { askForPlayerName, validateButton, validateName } from './Interface/InteractionModal'
+
+let player;
+askForPlayerName();
 
 const main = () => {
   const world = new World('World')
@@ -19,7 +23,15 @@ const main = () => {
     }
   }
 
-  const player = world.createPlayer('John Doe')
+
+  askForPlayerName();
+  validateButton.onclick = () => {
+    const name = validateName();
+    player = world.createPlayer(name);
+    wakeUp();
+  }
+
+
 
   world.createMoveAction(
     {
@@ -58,19 +70,18 @@ const main = () => {
     isEnabled: () => player.currentRoom === rooms[1] && rooms[2].color === 'black',
   })
 
-  setTimeout(() => {
-    say(`${player.name} wakes up.`)
-    addAction(
-      world.createMoveAction(
-        {
+  const wakeUp = () => {
+    setTimeout(() => {
+      say(`${player.name} wakes up.`)
+      addAction(
+        world.createMoveAction({
           text: 'Move to room 2',
           isEnabled: () => player.currentRoom === rooms[0],
           world,
-        },
-        rooms[1]
+        }, rooms[1])
       )
-    )
-  }, 1200)
+    }, 1200)
+  }
 }
 
 void main()
