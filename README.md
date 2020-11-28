@@ -56,6 +56,10 @@ npm start
 
 Avec l'integration netlify, il te suffit de pousser des changements sur la branche master de ton repo github pour deployer la nouvelle version.
 
+Le nom de chaque commit doit être précédé par un emoji qui précise la fonction du commit.
+
+[Site des gitmoji.](https://gitmoji.carloscuesta.me/)
+
 ```bash
 git add .
 git commit -m ':gitmoji adapté: fonctionnalité'
