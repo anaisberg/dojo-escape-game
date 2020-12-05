@@ -12,6 +12,9 @@ export class Room {
    * @param {number} roomConfiguration.xPos - room horizontal emplacement
    * @param {number} roomConfiguration.yPos - room vertical emplacement
    * @param {string} roomConfiguration.color - the room color
+   * @param {string} roomConfiguration.description - description of the room
+   * @param {DIRECTIONS[]} roomConfiguration.directionsAllowed - available directions from room
+   * @param {Tool} roomConfiguration.tool - object available to pick up in the room
    */
   constructor({ name, height = 1, width = 1, xPos = 0, yPos = 0, color }) {
     this.name = name

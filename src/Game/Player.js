@@ -1,6 +1,6 @@
 import { Room } from './Room'
+import { Tool } from './Tool'
 import { drawPlayer, erasePlayer } from '../Interface/Map'
-import { say } from '../Interface/Text'
 
 /**
  *
@@ -8,12 +8,14 @@ import { say } from '../Interface/Text'
 export class Player {
   /**
    * Create a player
-   * @param {Room} room the initial room where the player is
-   * @param {string} name the player name
+   * @param {Room} room  - the initial room where the player is
+   * @param {string} name - the player name
+   * @param {Tool[]} inventory - the objects in the player bag
    */
   constructor(room, name) {
     this.currentRoom = room
     this.name = name
+    this.inventory = []
   }
 
   /**
@@ -25,4 +27,13 @@ export class Player {
     this.currentRoom = wantedRoom
     drawPlayer(this)
   }
+
+  /**
+   * Add tool to playe rinventory
+   * @param {Tool} newTool
+   */
+  addToInventory(newTool: Tool) {
+    this.inventory.push(newTool);
+  }
+
 }
