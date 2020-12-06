@@ -14,6 +14,7 @@ const main = () => {
     for (let j = 0; j < 5; j++) {
       const room = world.createRoom({
         name: 'room ' + (i + j + 1),
+        color: 'transparent',
         width: 1,
         height: 1,
         xPos: i,

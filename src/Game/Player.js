@@ -32,7 +32,7 @@ export class Player {
    * Add tool to playe rinventory
    * @param {Tool} newTool
    */
-  addToInventory(newTool: Tool) {
+  addToInventory(newTool) {
     this.inventory.push(newTool);
   }
 
