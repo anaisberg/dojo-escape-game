@@ -1,5 +1,6 @@
 import { Player } from './Player'
 import { Room } from './Room'
+import { Tool } from './Tool'
 import { randomId } from './utils'
 import { say } from '../Interface/Text'
 
@@ -32,6 +33,25 @@ export class MoveAction extends Action {
       callback: () => {
         player.move(wantedRoom)
         say(`${player.name} moves to ${wantedRoom.name}`)
+        return actionConfig.callback()
+      },
+    })
+  }
+}
+
+export class ToolAction extends Action {
+  /**
+   * Create an action to use a tool
+   * @param {Object} actionConfig the action config
+   * @param {Tool} tool the tool to use
+   * @param {Room} currentRoom the room to move to
+   */
+  constructor(actionConfig, tool, currentRoom) {
+    super({
+      ...actionConfig,
+      text: `Use ${tool.name}`,
+      callback: () => {
+        tool.use(currentRoom)
         return actionConfig.callback()
       },
     })

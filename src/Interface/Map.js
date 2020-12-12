@@ -31,6 +31,7 @@ export const drawPlayer = (player) => {
     (player.currentRoom.xPos + player.currentRoom.width / 2) * scaling
   const playerYPos =
     (player.currentRoom.yPos + player.currentRoom.height / 2) * scaling
+  console.log('try to draw player', playerXPos,  playerYPos)
   mapContext.beginPath()
   mapContext.arc(
     playerXPos,

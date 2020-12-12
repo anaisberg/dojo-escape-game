@@ -35,5 +35,4 @@ export class Player {
   addToInventory(newTool) {
     this.inventory.push(newTool);
   }
-
 }

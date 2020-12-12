@@ -23,22 +23,37 @@
 
       </div>
 
+      <h1 class="title">Escape game</h1>
       <div class="interface">
-        <div class="primary-container">
-          <h1 class="title">Escape game</h1>
-          <div class="map-container">
-            <canvas id="map" height="370" width="370"
-            >If you see this you need a compatible browser, try Firefox,
-              Chrome</canvas
-            >
-          </div>
 
+        <div class="action-container">
+          <h2>moves</h2>
+          <div class="actions" id="actions"></div>
+          <div>
+            <button id="north" class="action-button">go north</button>
+            <div>
+              <button id="west" class="action-button">go west</button>
+              <button id="east" class="action-button">go east</button>
+            </div>
+            <button id="south" class="action-button">go south</button>
+          </div>
+          <h2>inventory</h2>
+          <div class="inventory" id="inventory"></div>
+        </div>
+
+        <div class="primary-container">
+          <div class="map-container">
+            <canvas id="map" height="370" width="370">
+              If you see this you need a compatible browser, try Firefox, Chrome
+            </canvas>
+          </div>
+        </div>
+
+        <div class="secondary-container">
+          <h2>state</h2>
           <p class="speak" id="text"></p>
         </div>
-        <div class="secondary-container">
-          <h2>Actions</h2>
-          <div class="actions" id="actions"></div>
-        </div>
+
       </div>
     </div>
 

@@ -2,28 +2,19 @@ import { World } from './Game/World'
 import { say } from './Interface/Text'
 import { addAction } from './Interface/Action'
 import { askForPlayerName, validateButton, validateName } from './Interface/InteractionModal'
+import { roomsMap } from './assets/config/rooms';
 
-let player;
 askForPlayerName();
 
 const main = () => {
   const world = new World('World')
   const rooms = [];
+  let player;
 
-  for (let i = 0; i < 5; i++) {
-    for (let j = 0; j < 5; j++) {
-      const room = world.createRoom({
-        name: 'room ' + (i + j + 1),
-        color: 'transparent',
-        width: 1,
-        height: 1,
-        xPos: i,
-        yPos: j,
-      });
-      rooms.push(room);
-    }
+  for (let roomParams of roomsMap) {
+    const room = world.createRoom(roomParams);
+    rooms.push(room);
   }
-
 
   askForPlayerName();
   validateButton.onclick = () => {
@@ -32,14 +23,22 @@ const main = () => {
     wakeUp();
   }
 
+  const northButton = document.getElementById('north')
+  const southButton = document.getElementById('south')  
+  const westButton = document.getElementById('west')
+  const eastButton = document.getElementById('east')
 
+  northButton.onclick = () => world.goNorth();
+  southButton.onclick = () => world.goSouth();
+  westButton.onclick = () => world.goWest();
+  eastButton.onclick = () => world.goEast();
 
   world.createMoveAction(
     {
       text: 'Move to room 1',
-      isEnabled: () => player.currentRoom === rooms[1],
+      isEnabled: () => player.currentRoom === world.rooms[1],
     },
-    rooms[0]
+    world.rooms[0]
   )
 
   world.createMoveAction(
@@ -52,9 +51,9 @@ const main = () => {
           }, 1200)
           resolve()
         }),
-      isEnabled: () => player.currentRoom === rooms[1] && rooms[2].color !== 'black',
+      isEnabled: () => player.currentRoom === world.rooms[1],
     },
-    rooms[2]
+    world.rooms[2]
   )
 
   world.createAction({
@@ -64,11 +63,11 @@ const main = () => {
         say(`${player.name} searches the room ...`)
         setTimeout(() => {
           say(`${player.name} found a little trap door to another room`)
-          rooms[2].updateColor()
+          world.rooms[2].updateColor()
           resolve()
         }, 3000)
       }),
-    isEnabled: () => player.currentRoom === rooms[1] && rooms[2].color === 'black',
+    isEnabled: () => player.currentRoom === world.rooms[1] && world.rooms[2].color === 'black',
   })
 
   const wakeUp = () => {
@@ -77,9 +76,9 @@ const main = () => {
       addAction(
         world.createMoveAction({
           text: 'Move to room 2',
-          isEnabled: () => player.currentRoom === rooms[0],
+          isEnabled: () => player.currentRoom === world.rooms[0],
           world,
-        }, rooms[1])
+        }, world.rooms[1])
       )
     }, 1200)
   }

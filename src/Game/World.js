@@ -1,8 +1,10 @@
 import { Player } from './Player'
 import { Room } from './Room'
-import { drawRoom, drawPlayer } from '../Interface/Map'
+import { drawRoom, drawPlayer, erasePlayer } from '../Interface/Map'
 import { Action, MoveAction } from './Action'
 import { clearActions, addEnabledActions } from '../Interface/Action'
+import { say } from '../Interface/Text'
+import { Movement } from './Movement'
 
 export class World {
   /**
@@ -107,5 +109,41 @@ export class World {
     this.player = player
     drawPlayer(player)
     return player
+  }
+
+   /**
+   * Try to make movement if allowed
+   * @param {Movement} movement
+   */
+  tryToMove(movement) {
+    if (movement.isAllowed) {
+      const newRoom = +this.rooms[movement.room]
+      erasePlayer(this.player)
+      this.player.currentRoom = newRoom
+      drawPlayer(this.player)
+      say(movement.okMessage)
+    } else {
+      say(movement.blockingMessage)
+    }
+  }
+
+  goNorth() {
+    const movement = this.player.currentRoom.moves[0]
+    this.tryToMove(movement)
+  }
+
+  goSouth() {
+    const movement = this.player.currentRoom.moves[1]
+    this.tryToMove(movement)
+  }
+
+  goWest() {
+    const movement = this.player.currentRoom.moves[2]
+    this.tryToMove(movement)
+  }
+
+  goEast() {
+    const movement = this.player.currentRoom.moves[3]
+    this.tryToMove(movement)
   }
 }
