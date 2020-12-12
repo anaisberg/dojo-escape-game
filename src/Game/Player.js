@@ -1,6 +1,5 @@
 import { Room } from './Room'
 import { Tool } from './Tool'
-import { drawPlayer, erasePlayer } from '../Interface/Map'
 
 /**
  *
@@ -16,16 +15,6 @@ export class Player {
     this.currentRoom = room
     this.name = name
     this.inventory = []
-  }
-
-  /**
-   * Move to another room
-   * @param {Room} wantedRoom
-   */
-  move(wantedRoom) {
-    erasePlayer(this)
-    this.currentRoom = wantedRoom
-    drawPlayer(this)
   }
 
   /**

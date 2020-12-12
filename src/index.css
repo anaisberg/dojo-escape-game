@@ -61,7 +61,14 @@ body {
   background-image: url('./assets/images/map.png');
   background-size: cover;
   height: 500px;
+  position: relative;
   width: 500px;
+}
+
+#location {
+  left: 85px;
+  position: absolute;
+  top: 100px;
 }
 
 #map {

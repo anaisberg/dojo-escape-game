@@ -5,9 +5,12 @@ import { World } from '../Game/World'
 const canvasId = 'map'
 const scaling = 60
 const playerSize = 1 / 15
+const playerXStart = 53
+const playerYStart  = 60
 
 const mapCanvas = document.getElementById(canvasId)
 const mapContext = mapCanvas.getContext('2d')
+const locationIcon = document.getElementById('location')
 
 /**
  * @param {Room} room - The room to draw
@@ -22,49 +25,16 @@ export const drawRoom = (room) => {
   )
 }
 
+
 /**
  * @param {Player} player - The player to draw
  */
-export const drawPlayer = (player) => {
-  mapContext.fillStyle = 'rgb(255, 165, 0)'
-  const playerXPos =
-    (player.currentRoom.xPos + player.currentRoom.width / 2) * scaling
-  const playerYPos =
-    (player.currentRoom.yPos + player.currentRoom.height / 2) * scaling
-  console.log('try to draw player', playerXPos,  playerYPos)
-  mapContext.beginPath()
-  mapContext.arc(
-    playerXPos,
-    playerYPos,
-    playerSize * scaling,
-    0,
-    Math.PI * 2,
-    true
-  )
-  mapContext.fill()
-}
-
-/**
- * @param {Player} player - The player to erase
- */
-export const erasePlayer = (player) => {
-  mapContext.fillStyle = player.currentRoom.color
-  mapContext.strokeStyle = player.currentRoom.color
-  const playerXPos =
-    (player.currentRoom.xPos + player.currentRoom.width / 2) * scaling
-  const playerYPos =
-    (player.currentRoom.yPos + player.currentRoom.height / 2) * scaling
-  mapContext.beginPath()
-  mapContext.arc(
-    playerXPos,
-    playerYPos,
-    playerSize * scaling,
-    0,
-    Math.PI * 2,
-    true
-  )
-  mapContext.fill()
-  mapContext.stroke()
+export const movePlayer = (player) => {
+  const playerXPos = (player.currentRoom.xPos + player.currentRoom.width / 2) * scaling + playerXStart
+  const playerYPos = (player.currentRoom.yPos + player.currentRoom.height / 2) * scaling + playerYStart
+  locationIcon.style.left = `${playerXPos}px`
+  locationIcon.style.top = `${playerYPos}px` 
+  console.log(playerYPos, playerXPos)
 }
 
 /**
@@ -73,5 +43,4 @@ export const erasePlayer = (player) => {
  */
 export const drawMap = (world) => {
   world.rooms.forEach(drawRoom)
-  drawPlayer(world.player)
 }

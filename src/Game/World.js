@@ -1,6 +1,6 @@
 import { Player } from './Player'
 import { Room } from './Room'
-import { drawRoom, drawPlayer, erasePlayer } from '../Interface/Map'
+import { drawRoom, movePlayer } from '../Interface/Map'
 import { Action, MoveAction } from './Action'
 import { clearActions, addEnabledActions } from '../Interface/Action'
 import { say } from '../Interface/Text'
@@ -107,7 +107,6 @@ export class World {
     }
     const player = new Player(this.rooms[0], name)
     this.player = player
-    drawPlayer(player)
     return player
   }
 
@@ -117,10 +116,9 @@ export class World {
    */
   tryToMove(movement) {
     if (movement.isAllowed) {
-      const newRoom = +this.rooms[movement.room]
-      erasePlayer(this.player)
+      const newRoom = this.rooms[movement.room]
       this.player.currentRoom = newRoom
-      drawPlayer(this.player)
+      movePlayer(this.player)
       say(movement.okMessage)
     } else {
       say(movement.blockingMessage)
