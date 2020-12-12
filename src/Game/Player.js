@@ -1,3 +1,4 @@
+import { say } from '../Interface/Text'
 import { Room } from './Room'
 import { Tool } from './Tool'
 
@@ -15,6 +16,19 @@ export class Player {
     this.currentRoom = room
     this.name = name
     this.inventory = []
+  }
+
+  /**
+   * Search the room for new tools
+   */
+  searchRoom() {
+    const tool = this.currentRoom.tool
+    if (tool) {
+      say(tool.description)
+      this.addToInventory(tool)
+    } else {
+      say('There is nothing worth of attention here')
+    }
   }
 
   /**
