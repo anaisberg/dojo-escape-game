@@ -6,7 +6,7 @@ export const roomsMap = [{
     yPos: 0,
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 1, blockingMessage: `You can't go south` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 1, okMessage: 'You went south. There is nothing arounf here so you need to keep going.', blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 5, blockingMessage: `You can't go east` }),
     ]
@@ -14,6 +14,7 @@ export const roomsMap = [{
     name: '1',
     xPos: 0,
     yPos: 1,
+    description: 'You walk a little bit and realize that there is nothing much around here',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 0, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south` }),

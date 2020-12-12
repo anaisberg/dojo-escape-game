@@ -3,7 +3,7 @@ import { Room } from './Room'
 import { drawRoom, movePlayer } from '../Interface/Map'
 import { Action, MoveAction } from './Action'
 import { clearActions, addEnabledActions } from '../Interface/Action'
-import { say } from '../Interface/Text'
+import { say, describe } from '../Interface/Text'
 import { Movement } from './Movement'
 
 export class World {
@@ -114,12 +114,13 @@ export class World {
    * Try to make movement if allowed
    * @param {Movement} movement
    */
-  tryToMove(movement) {
+  tryToMove(movement, moveMessage) {
     if (movement.isAllowed) {
       const newRoom = this.rooms[movement.room]
       this.player.currentRoom = newRoom
       movePlayer(this.player)
-      say(movement.okMessage)
+      say(movement.okMessage || moveMessage)
+      describe(newRoom.description)
     } else {
       say(movement.blockingMessage)
     }
@@ -127,21 +128,25 @@ export class World {
 
   goNorth() {
     const movement = this.player.currentRoom.moves[0]
-    this.tryToMove(movement)
+    const moveMessage = 'You walk north'
+    this.tryToMove(movement, moveMessage)
   }
 
   goSouth() {
     const movement = this.player.currentRoom.moves[1]
-    this.tryToMove(movement)
+    const moveMessage = 'You walk south'
+    this.tryToMove(movement, moveMessage)
   }
 
   goWest() {
     const movement = this.player.currentRoom.moves[2]
-    this.tryToMove(movement)
+    const moveMessage = 'You walk west'
+    this.tryToMove(movement, moveMessage)
   }
 
   goEast() {
     const movement = this.player.currentRoom.moves[3]
-    this.tryToMove(movement)
+    const moveMessage = 'You walk east'
+    this.tryToMove(movement, moveMessage)
   }
 }
