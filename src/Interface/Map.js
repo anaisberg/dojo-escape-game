@@ -40,7 +40,6 @@ export const movePlayer = (player) => {
   const playerYPos =  player.currentRoom.yPlayer || (player.currentRoom.yPos + 1/2) * scaling + playerYStart
   locationIcon.style.left = `${playerXPos}px`
   locationIcon.style.top = `${playerYPos}px` 
-  console.log(playerYPos, playerXPos)
 }
 
 /**
