@@ -8,21 +8,21 @@ export class Room {
   /**
    * @param {Object} roomConfiguration - this is the room configuration
    * @param {string} roomConfiguration.name - the name of the room
-   * @param {number} roomConfiguration.height - room height
-   * @param {number} roomConfiguration.width - room width
    * @param {number} roomConfiguration.xPos - room horizontal emplacement
    * @param {number} roomConfiguration.yPos - room vertical emplacement
+   * @param {number} roomConfiguration.xPlayer - player in room horizontal emplacement
+   * @param {number} roomConfiguration.yPlayer - player in room vertical emplacement
    * @param {string} roomConfiguration.color - the room color
    * @param {string} roomConfiguration.description - description of the room
    * @param {Mouvement[]} roomConfiguration.moves - available directions from room
    * @param {Tool} roomConfiguration.tool - object available to pick up in the room
    */
-  constructor({ name, height = 1, width = 1, xPos = 0, yPos = 0, color = 'transparent', moves = DEFAULT_MOVE_LIST, description = ''}) {
+  constructor({ name, xPos = 0, yPos = 0, xPlayer = null, yPlayer = null, color = 'transparent', moves = DEFAULT_MOVE_LIST, description = ''}) {
     this.name = name
-    this.height = height
-    this.width = width
     this.xPos = xPos
     this.yPos = yPos
+    this.xPlayer = this.xPlayer
+    this.yPlayer = this.yPlayer
     this.color = color ? color : randomColor()
     this.moves = moves
     this.description = description

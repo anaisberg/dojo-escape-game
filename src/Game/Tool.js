@@ -1,6 +1,5 @@
 import { Movement } from './Movement'
 import { Room } from './Room'
-import { say } from '../Interface/Text'
 
 export class Tool {
   /**
@@ -23,19 +22,12 @@ export class Tool {
     this.movement = movement
   }
 
-  /**
-   * @param {Room} currentRoom - The room in which player is now
-   */
-  use(currentRoom) {
-    if (this.room === currentRoom) {
-      say(this.useMessage);
-      this.movement.isAllowed = true;
-      this.changeRoomDescription();
-    }
-    else say(this.errorMessage);
-  }
-
   changeRoomDescription() {
     this.room.description = this.roomDescription;
+  }
+
+  delete(toolName) {
+    const tool = document.getElementById(toolName)
+    tool.remove()
   }
 }
