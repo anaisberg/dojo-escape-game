@@ -127,6 +127,8 @@ export const roomsMap = [{
     name: '12',
     xPos: 2,
     yPos: 2,
+    xPlayer: 234,
+    yPlayer: 232,
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 13, blockingMessage: `You can't go south` }),

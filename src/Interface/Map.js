@@ -36,8 +36,8 @@ export const drawRoom = (room) => {
  * @param {Player} player - The player to draw
  */
 export const movePlayer = (player) => {
-  const playerXPos =  (player.currentRoom.xPos + 1/2) * scaling + playerXStart
-  const playerYPos =  (player.currentRoom.yPos + 1/2) * scaling + playerYStart
+  const playerXPos =  player.currentRoom.xPlayer || (player.currentRoom.xPos + 1/2) * scaling + playerXStart
+  const playerYPos =  player.currentRoom.yPlayer || (player.currentRoom.yPos + 1/2) * scaling + playerYStart
   locationIcon.style.left = `${playerXPos}px`
   locationIcon.style.top = `${playerYPos}px` 
   console.log(playerYPos, playerXPos)

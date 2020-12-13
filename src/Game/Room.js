@@ -17,15 +17,16 @@ export class Room {
    * @param {Mouvement[]} roomConfiguration.moves - available directions from room
    * @param {Tool} roomConfiguration.tool - object available to pick up in the room
    */
-  constructor({ name, xPos = 0, yPos = 0, xPlayer = null, yPlayer = null, color = 'transparent', moves = DEFAULT_MOVE_LIST, description = ''}) {
+  constructor({ name, xPos = 0, yPos = 0, xPlayer = null, yPlayer = null, color = 'transparent', moves = DEFAULT_MOVE_LIST, description = '', tool = null}) {
     this.name = name
     this.xPos = xPos
     this.yPos = yPos
-    this.xPlayer = this.xPlayer
-    this.yPlayer = this.yPlayer
+    this.xPlayer = xPlayer
+    this.yPlayer = yPlayer
     this.color = color ? color : randomColor()
     this.moves = moves
     this.description = description
+    this.tool = tool
   }
 
   /**
