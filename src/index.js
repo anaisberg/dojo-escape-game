@@ -35,6 +35,26 @@ const main = () => {
   eastButton.onclick = () => world.goEast();
   searchButton.onclick = () => player.searchRoom();
 
+  document.onkeydown = (event) => {
+    event = event || window.event;
+    switch (event.key) {
+      case "ArrowUp" :
+        world.goNorth();
+        break;
+      case "ArrowDown" :
+        world.goSouth();
+        break;
+      case "ArrowLeft" :
+        world.goWest();
+        break;
+      case "ArrowRight" :
+        world.goEast();
+        break;
+      default :
+        return;
+    }
+  }
+
   const wakeUp = () => {
     setTimeout(() => say(`${player.name} wakes up.`), 1200)
   }

@@ -3,8 +3,7 @@ import { Player } from '../Game/Player'
 import { World } from '../Game/World'
 
 const canvasId = 'map'
-const scaling = 60
-const playerSize = 1 / 15
+const scaling = 74
 const playerXStart = 53
 const playerYStart  = 60
 
@@ -20,8 +19,15 @@ export const drawRoom = (room) => {
   mapContext.fillRect(
     room.xPos * scaling,
     room.yPos * scaling,
-    room.width * scaling,
-    room.height * scaling
+    scaling,
+    scaling
+  )
+  mapContext.strokeStyle = 'white';
+  mapContext.strokeRect(
+    room.xPos * scaling,
+    room.yPos * scaling,
+    scaling,
+    scaling
   )
 }
 
@@ -30,11 +36,10 @@ export const drawRoom = (room) => {
  * @param {Player} player - The player to draw
  */
 export const movePlayer = (player) => {
-  const playerXPos = (player.currentRoom.xPos + player.currentRoom.width / 2) * scaling + playerXStart
-  const playerYPos = (player.currentRoom.yPos + player.currentRoom.height / 2) * scaling + playerYStart
+  const playerXPos =  player.currentRoom.xPlayer || (player.currentRoom.xPos + 1/2) * scaling + playerXStart
+  const playerYPos =  player.currentRoom.yPlayer || (player.currentRoom.yPos + 1/2) * scaling + playerYStart
   locationIcon.style.left = `${playerXPos}px`
   locationIcon.style.top = `${playerYPos}px` 
-  console.log(playerYPos, playerXPos)
 }
 
 /**

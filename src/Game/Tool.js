@@ -1,6 +1,5 @@
 import { DIRECTIONS, Movement } from './Movement'
 import { Room } from './Room'
-import { say } from '../Interface/Text'
 
 export class Tool {
   /**
@@ -51,5 +50,10 @@ export class Tool {
 
   changeRoomDescription(room) {
     room.description = this.roomDescription;
+  }
+
+  delete(toolName) {
+    const tool = document.getElementById(toolName)
+    tool.remove()
   }
 }
