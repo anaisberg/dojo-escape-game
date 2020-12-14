@@ -67,11 +67,19 @@ export const tools = {
     }),
     "Ulysse's Bow" : new Tool({
         name: "Ulysse's Bow",
-        roomId: 12,
+        roomId: 2,
         description: 'At the back of the room a large wooden arch stands above an old fireplace. It is brightly decorated with ivory, but it retains a simple appearance.',
         errorMessage: "You try to bend the bow. But the legend did not lie, the bowstring is too stiff",
         useMessage: "These weird birds where Stymphalian birds, man-eating birds with beaks made of bronze and sharp metallic feathers they could launch at their victims. The rattle was build by Hephaistos is order to make them flee. They disapear from you sight.",
         direction: DIRECTIONS.DOWN,
+    }),
+    "Lever" : new Tool({
+        name: "Infinite Lever",
+        roomId: 8,
+        description: 'In front of the lever is planted a sign: "Will you dare to pull that lever?"',
+        errorMessage: "GAME OVER",
+        useMessage: "It seems that nothing has happened...",
+        direction: DIRECTIONS.LEFT,
     })
 
 }

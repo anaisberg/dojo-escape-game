@@ -1,3 +1,4 @@
+import { roomsMap } from '../assets/config/rooms'
 import { openSphinxEnigma, validateSphinxAnswer, sphinxModal } from '../Interface/InteractionModal'
 import { say } from '../Interface/Text'
 import { Room } from './Room'
@@ -56,10 +57,19 @@ export class Player {
   * @param {Tool} tool tool to register
   */
   displayFoundTool = (tool) => {
+    let callback;
+    if (tool.name === 'Infinite Lever') {
+      callback = () => {
+        tool.use(roomsMap[4])
+        say(tool.useMessage)
+      }
+    } else {
+      callback = () => this.onClickAddToInventory(toolElement, tool);
+    }
     const toolElement = document.createElement('button')
     Object.assign(toolElement, {
       classList: ['action-button'],
-      onclick: () => this.onClickAddToInventory(toolElement, tool),
+      onclick: callback,
       innerHTML: `Pick up ${tool.name}`,
     })
     toolInRoom.append(toolElement)

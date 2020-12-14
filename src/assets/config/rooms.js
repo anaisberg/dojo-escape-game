@@ -58,6 +58,7 @@ export const roomsMap = [{
     yPos: 4,
     xPlayer: 95,
     yPlayer: 384,
+    description:'',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south` }),
@@ -107,12 +108,14 @@ export const roomsMap = [{
     name: '8',
     xPos: 1,
     yPos: 3,
+    description:'There is nothing there apart from a lever in the middle of the trees',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 9, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, blockingMessage: `You can't go east` }),
     ],
+    tool: tools.lever
   }, {
     name: '9',
     xPos: 1,
@@ -123,7 +126,7 @@ export const roomsMap = [{
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: 8, blockingMessage: `You walk towards the birds, but as you get closer to their nest, their horrifying sound stun. You take a step back.` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south. There is no path` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: 4, blockingMessage: `An old ruin stands in front of you. You don't see any opening this way.` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: 4, blockingMessage: `An old ruin stands in front of you. You don't see any opening this way.`, okMessage:'A stair appeared out of nowhere. You climb the stair to get in the old ruin' }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 14, blockingMessage: `You can't go east` }),
     ],
     tool: tools.fork,
