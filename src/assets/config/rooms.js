@@ -7,10 +7,10 @@ export const roomsMap = [{
     yPos: 0,
     description: 'The room here is made of stone. You notice racks of ancient weapons, spears, bows and shields. It is probably a guard room. But what were they guarding in this forest?  Why are every pieces of armor made of bronze ?',
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You take a look at an ancient painting on the wall. It is drawn a huge wooden horse in front of a fortress. You recollect this ancient city is named Troyes.` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 1, okMessage: 'You went south. There is nothing around here so you need to keep going.', blockingMessage: `You can't go south` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `You can't go west` }),
-      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 5, blockingMessage: `You can't go east` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `They are simply mannequins on which Greek bronze armor sits.` }),
+      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 5, blockingMessage: `You can't go east`, okMessage: "You leave the tower by an exit on the east side" }),
     ],
     tool: tools["Ulysse's Bow"],
   },{
@@ -70,12 +70,12 @@ export const roomsMap = [{
     xPos: 1,
     yPos: 0,
     yPlayer: 101,
-    description: "You stepped out of the guard tower and find yourself in the forest again",
+    description: "You find yourself in the forest again",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north, the forest is too dense` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south, the forest is too dense` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 0, blockingMessage: `You can't go west` }),
-      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 10, blockingMessage: `You can't go east` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 0, blockingMessage: `You can't go west`, okMessage:'You go west, back in the guard tower'}),
+      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 10, blockingMessage: `You can't go east`, okMessage:'You go east, follow the main path' }),
     ],
   },{
     name: '6',
@@ -83,11 +83,11 @@ export const roomsMap = [{
     yPos: 1,
     xPlayer: 155,
     yPlayer: 175,
-    description: "You just arrived at a square place line with statues on all sides.",
+    description: "You just arrived at a square place line with statues on all sidesYou have just arrived on a circular square surrounded by houses. At each end of the square is a statue.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north a statue of Zeus is blocking the way` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 7, blockingMessage: `You can't go south` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 1, blockingMessage: `You can't go west a statue of Alexander the great is blocking the way` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 1, blockingMessage: `You can't go west, a statue of Alexander the great is blocking the way`, okMessage:'You enter the circular entrance released by the shield of Alexander the Great.' }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, blockingMessage: `You can't go east a statue of Hephaïstos is blocking the way` }),
     ],
   }, {
@@ -97,10 +97,10 @@ export const roomsMap = [{
     yPlayer: 233,
     description: "This forest is really strange, just now big conifers were surrounding me, now it seems that I am in the middle of a jungle. Vines are hanging from the green roof.The forest path has widened. I am at a crossroads, several choices are available to me. ",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 6, blockingMessage: `You can't go north` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 6, blockingMessage: `You can't go north`, okMessage:'You continue north on a path that seems to lead to a small village.' }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south, there is nothing but a dense jungle there` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true,  room: 2, blockingMessage: `You can't go west` }),
-      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 12, blockingMessage: `You can't go east` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true,  room: 2, blockingMessage: `You can't go west`, okMessage:'You enter a strange hall ' }),
+      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 12, blockingMessage: `You can't go east`, okMessage:'You cross the rampart by the knocked down door' }),
     ],
     tool: tools.vine,
   }, {
@@ -135,7 +135,7 @@ export const roomsMap = [{
     wPlayer: 230,
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north, the forest is too dense` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 11, blockingMessage: `You can't go south, a herd of white horses blocks the way. And they don't seem too happy to see you. ` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 11, blockingMessage: `You can't go south, a herd of white horses blocks the way. And they don't seem too happy to see you.`, okMessage:'You wish you had boots. You continue south, being careful not to walk in horse dung.' }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 5, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, blockingMessage: `You can't go east, the forest is too dense` }),
     ],
@@ -150,7 +150,7 @@ export const roomsMap = [{
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 10, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `A large metallic wall stands in front of you. You see flames on the whole and a large anvil` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You notice a workbench on the side, tools are scattered on it` }),
-      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east, flames are blazing from a large furnaces it is too hot` }),
+      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east, flames are blazing from a large furnaces, it is too hot` }),
     ],
     tool: tools["Metal Rattle"],
   }, {
@@ -159,10 +159,10 @@ export const roomsMap = [{
     yPos: 2,
     xPlayer: 234,
     yPlayer: 232,
-    description:'A small plain stretches out before my eyes',
+    description:'A small plain stretches out before your eyes',
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You notice a building that looks like a large barn. As you get closer, you see empty boxes and a terrible smell attacks your sense. Piles of horse shit lay there` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 13, blockingMessage: `You can't go south` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You notice a building that looks like a large barn. As you get closer, you see empty boxes and a terrible smell attacks your sense. Piles of horse shit lay there, you don't intend to stay there` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 13, blockingMessage: `You can't go south`, okMessage:"You went south and entered what seems to be a cave." }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 7, blockingMessage: `It seems that through the fir trees I can see the ramparts. Trees spread out clearly to make room for a door. A half rotten door stands in your way. You try to force it but it won't budge` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 17, blockingMessage: `You can't go east` }),
     ],
@@ -171,10 +171,10 @@ export const roomsMap = [{
     xPos: 2,
     yPos: 3,
     xPlayer: 242,
-    description: "You just entered what seems to be a cave. In the darkness, small lights are constellated on the ceiling.",
+    description: "In the darkness of the cavern, small lights are constellated on the ceiling.",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 12, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 14, blockingMessage: `You don't see much in the darkness, but you still seem to hear grunts. Curious you approach. A huge three-headed dog greets you. ` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 12, blockingMessage: `You can't go north`, okMessage:'You walk north towards the light, out of the cave !' }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 14, blockingMessage: `You don't see much in the darkness, but you still seem to hear grunts. Curious you approach. A huge three-headed dog greets you ferociously. You take your legs to your neck.`, okMessage:'You carefully walk past the sleeping cerberus'}),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You approach the wall of the cave and notice that the small lights were in fact shards of mirrors.` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `In the dim light of the entrance, you notice that a huge fresco decorates this part of the cave. It represents men sitting in a cave observing shadows, and a half-man, half-hose creature waiting outside of it. It reminds you of something, but you can't get your hands on it. ` }),
     ],
@@ -185,7 +185,7 @@ export const roomsMap = [{
     yPos: 4,
     yPlayer: 379,
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 13, blockingMessage: `You can't go north` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 13, blockingMessage: `You can't go north`, okMessage:'You walk north inside the cave, and carefully avoid walking on the tail of the sleeping cerberus' }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 9, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
@@ -206,10 +206,10 @@ export const roomsMap = [{
     xPos: 3,
     yPos: 1,
     xPlayer: 310,
-    description:"As you run down the path, the sound of flowing water gets louder and louder. You are near a wide river with a strong current. ",
+    description:"As you run down the path, the sound of flowing water gets louder and louder. You are on a beach near a wide river with a strong current.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `The water is ice-cold and the current is too strong, you can't go this way` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 17, blockingMessage: `You can't go south` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 17, blockingMessage: `You can't go south`, okMessage:'You walk south on the sandy path' }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
@@ -219,10 +219,11 @@ export const roomsMap = [{
     yPos: 2,
     xPlayer: 305,
     yPlayer: 233,
+    description:'You are at the eastern end of the plain. To the north, a path goes deeper into the forest.',
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 16, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 12, blockingMessage: `You can't go west` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 16, okMessage: `You walk north on a small road made of sand` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south, the forest is too dense` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 12, blockingMessage: `Suddenly on the road stands an impressively large statue of Gorgon. It is impossible for me to go around it. How do I even know the name of this statue? My memory fails me.`, okMessage: "You climb the rubbles of the statue." }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 22, blockingMessage: `You can't go east` }),
     ],
   }, {
@@ -268,7 +269,7 @@ export const roomsMap = [{
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: 20, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 22, blockingMessage: `You can't go south` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west`}),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
   }, {
@@ -277,10 +278,11 @@ export const roomsMap = [{
     yPos: 2,
     xPlayer: 376,
     yPlayer: 238,
+    description: "",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 21, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 23, blockingMessage: `You can't go south` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 17, blockingMessage: `You can't go west` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 17, blockingMessage: `You can't go west`, okMessage:"You climb the rubbles of the Gorgone statue." }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
     tool: tools.axe,
