@@ -5,10 +5,10 @@ export const roomsMap = [{
     name: '0',
     xPos: 0,
     yPos: 0,
-    description: 'The room here is made of stone. You notice racks of ancient weapons, spears, bows and shields. It is probably a guard room. But what were they guarding in this forest?  Why are every pieces of armor made of bronze ?',
+    description: 'The room here is made of stones. You notice racks of ancient weapons, spears, bows and shields. It is probably a guard room. But what were they guarding in this forest? Why are every pieces of armor made of bronze?',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You take a look at an ancient painting on the wall. It is drawn a huge wooden horse in front of a fortress. You recollect this ancient city is named Troyes.` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 1, okMessage: 'You went south. There is nothing around here so you need to keep going.', blockingMessage: `You can't go south` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 1, okMessage: 'You go south.', blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `They are simply mannequins on which Greek bronze armor sits.` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 5, blockingMessage: `You can't go east`, okMessage: "You leave the tower by an exit on the east side" }),
     ],
@@ -19,7 +19,7 @@ export const roomsMap = [{
     yPos: 1,
     xPlayer: 100,
     yPlayer: 166,
-    description: 'You walk a little bit and realize that there is nothing much around here but a dark forest. You notice a large door in what appears to be a tower at the North',
+    description: 'You walk a little bit and realize that there is nothing much around here but a dark forest. Looking North, you notice a large door in what appears to be a tower.',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 0, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south` }),
@@ -31,7 +31,7 @@ export const roomsMap = [{
     xPos: 0,
     yPos: 2,
     xPlayer: 97,
-    description: "What a strange room. Cut stones replace the forest seamlessly. It seems that I entered a hall. Torches flicker on the walls. But their weak light does not allow me to understand the layout of the room. A few steps further on, darkness absorbs all the light. Above this darkness, hoops float suspended and seem to be aligned with a target at the bottom of the wall. I think the room branches off to the left, but I can't see anything.",
+    description: "What a strange room. Cut stones replace the forest seamlessly. It seems that you entered a hall. Torches flicker on the walls, but their weak light does not allow you to understand the layout of the room. A few steps farther, darkness absorbs all the light. Above this darkness, hoops float suspended and seem to be aligned with a target at the bottom of the wall. I think the room branches off to the left, but I can't see anything.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 3, blockingMessage: `You can't go south` }),
@@ -44,7 +44,7 @@ export const roomsMap = [{
     yPos: 3,
     xPlayer: 97,
     yPlayer: 308,
-    description: "It is a brightly colored clearing in front of me. Funny trees with vaulted branches present fruits in the form of flowers in vermeille colors.",
+    description: "You stand in a brightly colored clearing. Funny trees with vaulted branches present fruits in the form of flowers in vermeille colors.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 2, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south` }),
@@ -83,12 +83,12 @@ export const roomsMap = [{
     yPos: 1,
     xPlayer: 155,
     yPlayer: 175,
-    description: "You just arrived at a square place line with statues on all sidesYou have just arrived on a circular square surrounded by houses. At each end of the square is a statue.",
+    description: "You arrived in a square place with statues standing on all sides. At each end of the square is a statue.",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north a statue of Zeus is blocking the way` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north, a statue of Zeus is blocking the way` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 7, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 1, blockingMessage: `You can't go west, a statue of Alexander the great is blocking the way`, okMessage:'You enter the circular entrance released by the shield of Alexander the Great.' }),
-      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, blockingMessage: `You can't go east a statue of Hephaïstos is blocking the way` }),
+      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, blockingMessage: `You can't go east, a statue of Hephaïstos is blocking the way` }),
     ],
   }, {
     name: '7',
@@ -163,7 +163,7 @@ export const roomsMap = [{
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You notice a building that looks like a large barn. As you get closer, you see empty boxes and a terrible smell attacks your sense. Piles of horse shit lay there, you don't intend to stay there` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 13, blockingMessage: `You can't go south`, okMessage:"You went south and entered what seems to be a cave." }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 7, blockingMessage: `It seems that through the fir trees I can see the ramparts. Trees spread out clearly to make room for a door. A half rotten door stands in your way. You try to force it but it won't budge` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 7, blockingMessage: `It seems that through the fir trees I can see the ramparts. Trees spread out clearly to make room for a door. A half rotten door stands in your way. You try to force it but it won't budge.` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 17, blockingMessage: `You can't go east` }),
     ],
   }, {
