@@ -73,6 +73,9 @@ export class World {
   * @param {Movement} movement
   */
   tryToMove(movement, moveMessage) {
+    if (+this.player.currentRoom.name === 16 || +this.player.currentRoom.name === 10) {
+      this.rooms[15].updateColor()
+    }
     if (movement.isAllowed) {
       const newRoom = this.rooms[movement.room]
       this.player.currentRoom = newRoom
@@ -87,6 +90,9 @@ export class World {
   }
 
   goNorth() {
+    if (+this.player.currentRoom.name === 16) {
+      this.rooms[15].updateColor()
+    }
     const movement = this.player.currentRoom.moves[0]
     const moveMessage = 'You walk north'
     this.tryToMove(movement, moveMessage)
@@ -105,6 +111,9 @@ export class World {
   }
 
   goEast() {
+    if (+this.player.currentRoom.name === 10) {
+      this.rooms[15].updateColor()
+    }
     const movement = this.player.currentRoom.moves[3]
     const moveMessage = 'You walk east'
     this.tryToMove(movement, moveMessage)

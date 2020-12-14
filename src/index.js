@@ -3,23 +3,21 @@ import { say } from './Interface/Text'
 import { askForPlayerName, validateButton, validateName, validateAnswerButton } from './Interface/InteractionModal'
 import { roomsMap } from './assets/config/rooms';
 
-//askForPlayerName();
-
 const main = () => {
   const world = new World('World')
   const rooms = [];
   let player;
-
-  for (let roomParams of roomsMap) {
-    const room = world.createRoom(roomParams);
-    rooms.push(room);
-  }
 
   askForPlayerName();
   validateButton.onclick = () => {
     const name = validateName();
     player = world.createPlayer(name);
     wakeUp();
+  }
+  
+  for (let roomParams of roomsMap) {
+    const room = world.createRoom(roomParams);
+    rooms.push(room);
   }
 
   validateAnswerButton.onclick = () => player.validateSphinxAnswer();
