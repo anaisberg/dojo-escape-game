@@ -37,5 +37,8 @@ export const validateSphinxAnswer = () => {
   return correctAnswer
 }
 
+export const openEnding = () => {
+  endingModal.style.display = "block";
+}
 
 
