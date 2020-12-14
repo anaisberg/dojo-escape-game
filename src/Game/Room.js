@@ -1,7 +1,7 @@
 const randomValue = () => Math.floor(Math.random() * 255)
 const randomColor = () =>
   `rgb(${randomValue()}, ${randomValue()}, ${randomValue()})`
-import { drawRoom } from '../Interface/Map'
+import { clearRoom, drawRoom } from '../Interface/Map'
 import { DEFAULT_MOVE_LIST } from './Movement'
 
 export class Room {
@@ -12,12 +12,12 @@ export class Room {
    * @param {number} roomConfiguration.yPos - room vertical emplacement
    * @param {number} roomConfiguration.xPlayer - player in room horizontal emplacement
    * @param {number} roomConfiguration.yPlayer - player in room vertical emplacement
-   * @param {string} roomConfiguration.color - the room color
+   * @param {number} roomConfiguration.color - the room color
    * @param {string} roomConfiguration.description - description of the room
    * @param {Mouvement[]} roomConfiguration.moves - available directions from room
    * @param {Tool} roomConfiguration.tool - object available to pick up in the room
    */
-  constructor({ name, xPos = 0, yPos = 0, xPlayer = null, yPlayer = null, color = 'transparent', moves = DEFAULT_MOVE_LIST, description = '', tool = null}) {
+  constructor({ name, xPos = 0, yPos = 0, xPlayer = null, yPlayer = null, color = 1, moves = DEFAULT_MOVE_LIST, description = '', tool = null}) {
     this.name = name
     this.xPos = xPos
     this.yPos = yPos
@@ -33,7 +33,8 @@ export class Room {
    * @param {string} color - The new color
    */
   updateColor() {
-    this.color = 'transparent'
+    if (this.color === 0) return;
+    this.color -= 0.25;
     drawRoom(this)
   }
 }

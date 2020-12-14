@@ -80,8 +80,10 @@ export class Player {
     if (this.inventory.length === 0) {
       toolInBag.append(noToolText)
     } else {
-      document.getElementById('no-tool').remove()
+      const noToolText = document.getElementById('no-tool')
+      if (noToolText) noToolText.remove()
     }
+    inventory.innerHTML = null;
     this.inventory.forEach(tool => {
       const toolElement = document.createElement('button')
       Object.assign(toolElement, {

@@ -52,49 +52,6 @@ export class World {
   }
 
   /**
-   * Create an action
-   * @param {Object} actionConfig the action config
-   * @param {string} actionConfig.text the action text
-   * @param {()=>void | undefined} actionConfig.isEnabled evaluated after each action for action availability, if undefined the action is not automatically enabled
-   * @param {()=>Promise<void> | undefined} actionConfig.callback to do on action click
-   */
-  createAction(actionConfig) {
-    const action = new Action({
-      ...actionConfig,
-      world: this,
-      callback: this.wrapCallbackForAutomaticActionsDisplay(
-        actionConfig.callback
-      ),
-    })
-    this.actions.push(action)
-    return action
-  }
-
-  /**
-   * Create a move action
-   * @param {Object} actionConfig the action config
-   * @param {string} actionConfig.text the action text
-   * @param {()=>void | undefined} actionConfig.isEnabled evaluated after each action for action availability, if undefined the action is not automatically enabled
-   * @param {()=>Promise<void> | undefined} actionConfig.callback to do on action click
-   * @param {Room} wantedRoom the room to move to
-   */
-  createMoveAction(actionConfig, wantedRoom) {
-    const action = new MoveAction(
-      {
-        ...actionConfig,
-        world: this,
-        callback: this.wrapCallbackForAutomaticActionsDisplay(
-          actionConfig.callback
-        ),
-      },
-      this.player,
-      wantedRoom
-    )
-    this.actions.push(action)
-    return action
-  }
-
-  /**
    * Create a new player
    * @param {string} name the player name
    * @returns {Player} the created player
@@ -105,15 +62,16 @@ export class World {
         'The world needs to have at least one room for the player to start'
       )
     }
-    const player = new Player(this.rooms[0], name)
+    const player = new Player(this.rooms[12], name)
+    movePlayer(player)
     this.player = player
     return player
   }
 
-   /**
-   * Try to make movement if allowed
-   * @param {Movement} movement
-   */
+  /**
+  * Try to make movement if allowed
+  * @param {Movement} movement
+  */
   tryToMove(movement, moveMessage) {
     if (movement.isAllowed) {
       const newRoom = this.rooms[movement.room]

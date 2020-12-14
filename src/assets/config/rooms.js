@@ -249,7 +249,7 @@ export const roomsMap = [{
     yPos: 0,
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: 21, blockingMessage: `You can't go south` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 21, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
