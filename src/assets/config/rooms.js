@@ -247,7 +247,7 @@ export const roomsMap = [{
     yPlayer: 387,
     description: "You are not alone here. You look up and meet face to face with a huge sphinx. It's sitting in the middle of the way with a clever smile on its face.",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 18, blockingMessage: `You can't go north. The Sphinx is blocking the way.`, okMessage: "You are still a little afraid, but you walk past the still sphinx. It has a content smile on its face." }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: 18, blockingMessage: `You can't go north. The Sphinx is blocking the way.`, okMessage: "You are still a little afraid, but you walk past the still sphinx. It has a content smile on its face." }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 24, blockingMessage: `You can't go east` }),
@@ -297,7 +297,7 @@ export const roomsMap = [{
     description: "The path seems infinite. You can't see anything south, the ground disappears.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 22, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 24, blockingMessage: `You find yourself indeed blocked in front of a precipice. Tree branches are growing on the sides, but they seem out of reach`, okMessage: "You jump using the liana hanging on a branch." }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: 24, blockingMessage: `You find yourself indeed blocked in front of a precipice. Tree branches are growing on the sides, but they seem out of reach`, okMessage: "You jump using the liana hanging on a branch." }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
@@ -309,7 +309,7 @@ export const roomsMap = [{
     yPlayer: 374,
     description: 'Trees are sparse but stones are piled up all around you. With a little imagination, they can look like an arena. How many fights have taken place here? Will you have to fight too?',
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 23, blockingMessage: `You can't go north` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 23, blockingMessage: `You can't go north`, okMessage: "You jump using the liana hanging on a branch." }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 19, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
