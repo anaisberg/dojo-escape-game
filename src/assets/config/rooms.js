@@ -161,7 +161,7 @@ export const roomsMap = [{
     yPlayer: 232,
     description:'A small plain stretches out before my eyes',
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You notice a building that looks like a large barn. As you get closer, you notice the barn is empty and a terrible smell attacks your sense. Piles of horse shit lay there` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You notice a building that looks like a large barn. As you get closer, you see empty boxes and a terrible smell attacks your sense. Piles of horse shit lay there` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 13, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 7, blockingMessage: `It seems that through the fir trees I can see the ramparts. Trees spread out clearly to make room for a door. A half rotten door stands in your way. You try to force it but it won't budge` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 17, blockingMessage: `You can't go east` }),
@@ -171,11 +171,12 @@ export const roomsMap = [{
     xPos: 2,
     yPos: 3,
     xPlayer: 242,
+    description: "You just entered what seems to be a cave. In the darkness, small lights are constellated on the ceiling.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 12, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 14, blockingMessage: `You can't go south` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
-      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 14, blockingMessage: `You don't see much in the darkness, but you still seem to hear grunts. Curious you approach. A huge three-headed dog greets you. ` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You approach the wall of the cave and notice that the small lights were in fact shards of mirrors.` }),
+      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `In the dim light of the entrance, you notice that a huge fresco decorates this part of the cave. It represents men sitting in a cave observing shadows, and a half-man, half-hose creature waiting outside of it. It reminds you of something, but you can't get your hands on it. ` }),
     ],
     tool: tools["Mirror Fragment"]
   }, {
@@ -205,8 +206,9 @@ export const roomsMap = [{
     xPos: 3,
     yPos: 1,
     xPlayer: 310,
+    description:"As you run down the path, the sound of flowing water gets louder and louder. You are near a wide river with a strong current. ",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You can't go north` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `The water is ice-cold and the current is too strong, you can't go this way` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 17, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
