@@ -40,6 +40,7 @@ body {
 }
 
 .action-button {
+  background-color: rgba(0,0,0,0.3);
   padding: 0.35rem 1.2rem;
   border: 0.1rem solid white;
   margin: 6px;
@@ -51,7 +52,6 @@ body {
   color: white;
   text-align: center;
   transition: all 0.3s;
-  background-color: transparent;
 }
 
 .action-button:hover {

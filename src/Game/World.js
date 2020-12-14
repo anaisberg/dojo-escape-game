@@ -81,6 +81,7 @@ export class World {
       say(movement.okMessage || moveMessage)
       describe(newRoom.description)
     } else {
+      this.player.currentRoom.updateColor()
       say(movement.blockingMessage)
     }
   }
@@ -107,5 +108,9 @@ export class World {
     const movement = this.player.currentRoom.moves[3]
     const moveMessage = 'You walk east'
     this.tryToMove(movement, moveMessage)
+  }
+
+  changeRoomDescription(room) {
+    this.rooms[+room.name].description = this.roomDescription
   }
 }

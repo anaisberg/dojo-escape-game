@@ -1,3 +1,4 @@
+import { openSphinxEnigma, validateSphinxAnswer, sphinxModal } from '../Interface/InteractionModal'
 import { say } from '../Interface/Text'
 import { Room } from './Room'
 import { Tool } from './Tool'
@@ -42,6 +43,9 @@ export class Player {
     if (tool) {
       say(tool.description)
       this.displayFoundTool(tool)
+    } else if (+this.currentRoom.name === 19) {
+      say('There is nothing to help you here but your own brain. The sphinx standing in the way wants to test your capacities. Are you ready to give it a try?')
+      this.displaySphinxEnigma()
     } else {
       say('There is nothing worth of attention here')
     }
@@ -52,15 +56,24 @@ export class Player {
   * @param {Tool} tool tool to register
   */
   displayFoundTool = (tool) => {
-    const toolElement = document.createElement("BUTTON")
+    const toolElement = document.createElement('button')
     Object.assign(toolElement, {
       classList: ['action-button'],
-      onclick: () => this.onClickAddToInventory(toolElement,tool),
+      onclick: () => this.onClickAddToInventory(toolElement, tool),
       innerHTML: `Pick up ${tool.name}`,
     })
     toolInRoom.append(toolElement)
   }
 
+  displaySphinxEnigma() {
+    const btnElement = document.createElement('button')
+    Object.assign(btnElement, {
+      classList: ['action-button'],
+      onclick: () => openSphinxEnigma(),
+      innerHTML: `Answer Sphinx's Enigma`,
+    })
+    toolInRoom.append(btnElement)
+  }
   /**
    * Add tool to playe rinventory
    * @param {Tool} newTool
@@ -100,12 +113,23 @@ export class Player {
    * @param {Tool} tool - The tool we want to use
    */
   useTool(tool) {
-    console.log(tool.roomId, this.currentRoom)
     if (tool.roomId === +this.currentRoom.name) {
       say(tool.useMessage)
       tool.use(this.currentRoom)
       this.removeFromInventory(tool)
     }
     else say(tool.errorMessage);
+  }
+
+  validateSphinxAnswer() {
+    const isAnswerCorrect = validateSphinxAnswer();
+    console.log(isAnswerCorrect)
+    sphinxModal.style.display = "none";
+    if (isAnswerCorrect) {
+      say('You passed. The Sphinx steps asside and a path appears')
+      this.currentRoom.moves[0].isAllowed = true;
+    } else {
+      say('The Sphinx is disappointed by your answer. Try again later.')
+    }
   }
 }

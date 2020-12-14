@@ -1,5 +1,6 @@
 import { DIRECTIONS, Movement } from './Movement'
 import { Room } from './Room'
+import { World } from './World'
 
 export class Tool {
   /**
@@ -28,7 +29,7 @@ export class Tool {
   use(currentRoom) {
     switch (this.direction) {
       case DIRECTIONS.UP: 
-        currentRoom.moves[0].isAllowed = true
+        currentRoom.moves[0].isAllowed = true;
         break
       case DIRECTIONS.DOWN: 
         currentRoom.moves[1].isAllowed = true;
@@ -40,12 +41,8 @@ export class Tool {
         currentRoom.moves[3].isAllowed = true;
         break;
     }
-    this.changeRoomDescription(currentRoom);
+    world.changeRoomDescription(currentRoom);
     this.delete(this.name);
-  }
-
-  changeRoomDescription(room) {
-    room.description = this.roomDescription;
   }
 
   delete() {

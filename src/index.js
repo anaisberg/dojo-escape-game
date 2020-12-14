@@ -1,7 +1,6 @@
 import { World } from './Game/World'
-import { Player } from './Game/Player'
 import { say } from './Interface/Text'
-import { askForPlayerName, validateButton, validateName } from './Interface/InteractionModal'
+import { askForPlayerName, validateButton, validateName, validateAnswerButton } from './Interface/InteractionModal'
 import { roomsMap } from './assets/config/rooms';
 
 askForPlayerName();
@@ -22,6 +21,8 @@ const main = () => {
     player = world.createPlayer(name);
     wakeUp();
   }
+
+  validateAnswerButton.onclick = () => player.validateSphinxAnswer();
 
   const northButton = document.getElementById('north')
   const southButton = document.getElementById('south')  
