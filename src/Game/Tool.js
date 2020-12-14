@@ -41,14 +41,15 @@ export class Tool {
         break;
     }
     this.changeRoomDescription(currentRoom);
+    this.delete(this.name);
   }
 
   changeRoomDescription(room) {
     room.description = this.roomDescription;
   }
 
-  delete(toolName) {
-    const tool = document.getElementById(toolName)
+  delete() {
+    const tool = document.getElementById(this.name)
     tool.remove()
   }
 }

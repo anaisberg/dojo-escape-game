@@ -2,7 +2,7 @@ import { say } from '../Interface/Text'
 import { Room } from './Room'
 import { Tool } from './Tool'
 
-const toolInRoom = document.getElementById('room-tools')
+export const toolInRoom = document.getElementById('room-tools')
 const inventory = document.getElementById('inventory')
 const noToolText = document.createElement('p')
 Object.assign(noToolText, {
@@ -37,6 +37,7 @@ export class Player {
    * Search the room for new tools
    */
   searchRoom() {
+    toolInRoom.innerHTML = null; 
     const tool = this.currentRoom.tool
     if (tool) {
       say(tool.description)
@@ -65,41 +66,44 @@ export class Player {
    * @param {Tool} newTool
    */
   addToInventory(newTool) {
-    const toolElement = document.createElement('button')
-    Object.assign(toolElement, {
-      classList: ['action-button'],
-      onclick: () => this.useTool(newTool),
-      id: newTool.name,
-      innerHTML: `${newTool.name}`,
-    })
-    inventory.append(toolElement)
+    this.currentRoom.tool = null;
     this.inventory.push(newTool);
+    this.renderInventory();
   }
   
   removeFromInventory(toolToRemove) {
     this.inventory = this.inventory.filter(item => item!== toolToRemove)
+    this.renderInventory()
+  }
+  
+  renderInventory() {
+    if (this.inventory.length === 0) {
+      toolInBag.append(noToolText)
+    } else {
+      document.getElementById('no-tool').remove()
+    }
+    this.inventory.forEach(tool => {
+      const toolElement = document.createElement('button')
+      Object.assign(toolElement, {
+        classList: ['action-button'],
+        onclick: () => this.useTool(tool),
+        id: tool.name,
+        innerHTML: `${tool.name}`,
+      })
+      inventory.append(toolElement)
+    }) 
   }
 
   /**
    * @param {Tool} tool - The tool we want to use
    */
   useTool(tool) {
-    console.log(tool.roomId,this.currentRoom)
+    console.log(tool.roomId, this.currentRoom)
     if (tool.roomId === +this.currentRoom.name) {
       say(tool.useMessage)
       tool.use(this.currentRoom)
-      tool.delete(tool.name)
       this.removeFromInventory(tool)
-      this.checkEmptyInventory()
     }
     else say(tool.errorMessage);
-  }
-
-  checkEmptyInventory() {
-    if (this.inventory.length === 0) {
-      toolInBag.append(noToolText)
-    } else {
-      document.getElementById('no-tool').remove()
-    }
   }
 }

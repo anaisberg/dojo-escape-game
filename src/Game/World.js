@@ -1,4 +1,4 @@
-import { Player } from './Player'
+import { Player, toolInRoom } from './Player'
 import { Room } from './Room'
 import { drawRoom, movePlayer } from '../Interface/Map'
 import { Action, MoveAction } from './Action'
@@ -118,6 +118,7 @@ export class World {
     if (movement.isAllowed) {
       const newRoom = this.rooms[movement.room]
       this.player.currentRoom = newRoom
+      toolInRoom.innerHTML = null; 
       movePlayer(this.player)
       say(movement.okMessage || moveMessage)
       describe(newRoom.description)
