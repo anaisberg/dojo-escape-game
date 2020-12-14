@@ -219,11 +219,11 @@ export const roomsMap = [{
     yPos: 2,
     xPlayer: 305,
     yPlayer: 233,
-    description:'You are at the eastern end of the plain. To the north, a path goes deeper into the forest.',
+    description: 'You are at the eastern end of the plain. To the north, a path goes deeper into the forest.',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 16, okMessage: `You walk north on a small road made of sand` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south, the forest is too dense` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 12, blockingMessage: `Suddenly on the road stands an impressively large statue of Gorgon. It is impossible for me to go around it. How do I even know the name of this statue? My memory fails me.`, okMessage: "You climb the rubbles of the statue." }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 12, blockingMessage: `On the road stands an impressively large statue of Gorgon. It is impossible for you to walk past. You notice that you could remember the statue's name. Your memory might be coming back.`, okMessage: "You climb the rubbles of the statue." }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 22, blockingMessage: `You can't go east` }),
     ],
   }, {
@@ -231,9 +231,10 @@ export const roomsMap = [{
     xPos: 3,
     yPos: 3,
     yPlayer: 311,
+    description: "There is nothing but stones here. And bags of stones. Yet, something shiny catches your eye.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 19, blockingMessage: `You can't go south` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 19, blockingMessage: `You can't go south`, okMessage: "You are still a little afraid, but you walk past the still sphinx. It has a content smile on its face." }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
@@ -244,8 +245,9 @@ export const roomsMap = [{
     yPos: 4,
     xPlayer: 315,
     yPlayer: 387,
+    description: "You are not alone here. You look up and meet face to face with a huge sphinx. It's sitting in the middle of the way with a clever smile on its face.",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 18, blockingMessage: `You can't go north` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 18, blockingMessage: `You can't go north. The Sphinx is blocking the way.`, okMessage: "You are still a little afraid, but you walk past the still sphinx. It has a content smile on its face." }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 24, blockingMessage: `You can't go east` }),
@@ -255,6 +257,7 @@ export const roomsMap = [{
     name: '20',
     xPos: 4,
     yPos: 0,
+    description: "You find yourself in front of the river. The sandy beach is bigger. There is a boat that floats. It is not swept away by the current, but seems to be waiting for you. There is even a paddle inside it.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 21, blockingMessage: `You can't go south` }),
@@ -278,7 +281,7 @@ export const roomsMap = [{
     yPos: 2,
     xPlayer: 376,
     yPlayer: 238,
-    description: "",
+    description: "Logs are lying around. It looks like a woodcutter has been here. He even left his axe planted in a stump.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 21, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 23, blockingMessage: `You can't go south` }),
@@ -291,9 +294,10 @@ export const roomsMap = [{
     xPos: 4,
     yPos: 3,
     xPlayer: 390,
+    description: "The path seems infinite. You can't see anything south, the ground disappears.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 22, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 24, blockingMessage: `You can't go south` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 24, blockingMessage: `You find yourself indeed blocked in front of a precipice. Tree branches are growing on the sides, but they seem out of reach`, okMessage: "You jump using the liana hanging on a branch." }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
@@ -303,6 +307,7 @@ export const roomsMap = [{
     yPos: 4,
     xPlayer: 392,
     yPlayer: 374,
+    description: 'Trees are sparse but stones are piled up all around you. With a little imagination, they can look like an arena. How many fights have taken place here? Will you have to fight too?',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 23, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south` }),
