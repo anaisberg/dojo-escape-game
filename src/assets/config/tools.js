@@ -53,6 +53,7 @@ export const tools = {
     'Laurel Crown' : new Tool({
         name: 'Laurel Crown',
         roomId: 6,
+        description: '',
         errorMessage: "You sit the Crown on your head and parade like an hellenic Emperor. Yet nothing happens",
         useMessage: "You swiftly climb the Emperor's statue and sit the missing crown on his head. Alexander the Great raises his shield in a victorious posture opening a secret path to the next room",
         direction: DIRECTIONS.LEFT,
@@ -60,6 +61,7 @@ export const tools = {
     "Ulysse's Bow" : new Tool({
         name: "Ulysse's Bow",
         roomId: 12,
+        description: 'At the back of the room a large wooden arch stands above an old fireplace. It is brightly decorated with ivory, but it retains a simple appearance.',
         errorMessage: "You try to bend the bow. But the legend did not lie, the bowstring is too stiff",
         useMessage: "These weird birds where Stymphalian birds, man-eating birds with beaks made of bronze and sharp metallic feathers they could launch at their victims. The rattle was build by Hephaistos is order to make them flee. They disapear from you sight.",
         direction: DIRECTIONS.DOWN,

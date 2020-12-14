@@ -1,22 +1,25 @@
 import { Movement, DIRECTIONS } from '../../Game/Movement'
+import { tools } from './tools'
 
 export const roomsMap = [{
     name: '0',
     xPos: 0,
     yPos: 0,
+    description: 'The room here is made of stone. You notice racks of ancient weapons, spears, bows and shields. It is probably a guard room. But what were they guarding in this forest?  Why are every pieces of armor made of bronze ?',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 1, okMessage: 'You went south. There is nothing arounf here so you need to keep going.', blockingMessage: `You can't go south` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 1, okMessage: 'You went south. There is nothing around here so you need to keep going.', blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 5, blockingMessage: `You can't go east` }),
-    ]
+    ],
+    tool: tools["Ulysse's Bow"],
   },{
     name: '1',
     xPos: 0,
     yPos: 1,
     xPlayer: 100,
     yPlayer: 166,
-    description: 'You walk a little bit and realize that there is nothing much around here',
+    description: 'You walk a little bit and realize that there is nothing much around here but a dark forest. You notice a large door in what appears to be a tower at the North',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 0, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south` }),
@@ -28,6 +31,7 @@ export const roomsMap = [{
     xPos: 0,
     yPos: 2,
     xPlayer: 97,
+    description: "What a strange room. Cut stones replace the forest seamlessly. It seems that I entered a hall. Torches flicker on the walls. But their weak light does not allow me to understand the layout of the room. A few steps further on, darkness absorbs all the light. Above this darkness, hoops float suspended and seem to be aligned with a target at the bottom of the wall. I think the room branches off to the left, but I can't see anything.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 3, blockingMessage: `You can't go south` }),
@@ -46,6 +50,7 @@ export const roomsMap = [{
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
+    tool: tools["Lotus Fruit"],
   }, {
     name: '4',
     xPos: 0,
@@ -76,6 +81,7 @@ export const roomsMap = [{
     yPos: 1,
     xPlayer: 155,
     yPlayer: 175,
+    description: "",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 7, blockingMessage: `You can't go south` }),
@@ -87,12 +93,14 @@ export const roomsMap = [{
     xPos: 1,
     yPos: 2,
     yPlayer: 233,
+    description: "This forest is really strange, just now big conifers were surrounding me, now it seems that I am in the middle of a jungle. Vines are hanging from the green roof.The forest path has widened. I am at a crossroads, several choices are available to me. ",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 6, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true,  room: 2, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 12, blockingMessage: `You can't go east` }),
     ],
+    tool: tools.vine,
   }, {
     name: '8',
     xPos: 1,
@@ -115,6 +123,7 @@ export const roomsMap = [{
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 4, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 14, blockingMessage: `You can't go east` }),
     ],
+    tool: tools.fork,
   },
   {
     name: '10',
@@ -123,7 +132,7 @@ export const roomsMap = [{
     wPlayer: 230,
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 11, blockingMessage: `You can't go south` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 11, blockingMessage: `You can't go south, a herd of white horses blocks the way. And they don't seem too happy to see you. ` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 5, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, blockingMessage: `You can't go east` }),
     ],
@@ -139,6 +148,7 @@ export const roomsMap = [{
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
+    tool: tools["Metal Rattle"],
   }, {
     name: '12',
     xPos: 2,
@@ -162,6 +172,7 @@ export const roomsMap = [{
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
+    tool: tools["Mirror Fragment"]
   }, {
     name: '14',
     xPos: 2,
@@ -218,6 +229,7 @@ export const roomsMap = [{
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
+    tool: tools.drachma,
   }, {
     name: '19',
     xPos: 3,
@@ -264,6 +276,7 @@ export const roomsMap = [{
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 17, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
+    tool: tools.axe,
   }, {
     name: '23',
     xPos: 4,
@@ -287,5 +300,6 @@ export const roomsMap = [{
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: true, room: 19, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
     ],
+    tool: tools["Laurel Crown"],
   },
 ]

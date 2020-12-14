@@ -26,26 +26,21 @@ export class Tool {
    * @param {Room} currentRoom - The room in which player is now
    */
   use(currentRoom) {
-    if (this.roomId === +currentRoom.name) {
-      say(this.useMessage);
-      switch (this.direction) {
-        case DIRECTIONS.UP: 
-          currentRoom.moves[0].isAllowed = true
-          break
-        case DIRECTIONS.DOWN: 
-          currentRoom.moves[1].isAllowed = true;
-          break;
-        case DIRECTIONS.LEFT: 
-          currentRoom.moves[2].isAllowed = true;
-          break;
-        case DIRECTIONS.RIGHT : 
-          currentRoom.moves[3].isAllowed = true;
-          break;
-      }
-
-      this.changeRoomDescription(currentRoom);
+    switch (this.direction) {
+      case DIRECTIONS.UP: 
+        currentRoom.moves[0].isAllowed = true
+        break
+      case DIRECTIONS.DOWN: 
+        currentRoom.moves[1].isAllowed = true;
+        break;
+      case DIRECTIONS.LEFT: 
+        currentRoom.moves[2].isAllowed = true;
+        break;
+      case DIRECTIONS.RIGHT : 
+        currentRoom.moves[3].isAllowed = true;
+        break;
     }
-    else say(this.errorMessage);
+    this.changeRoomDescription(currentRoom);
   }
 
   changeRoomDescription(room) {

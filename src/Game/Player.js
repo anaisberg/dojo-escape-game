@@ -27,6 +27,12 @@ export class Player {
     this.inventory = []
   }
 
+  onClickAddToInventory = (e,tool) => {
+    this.addToInventory(tool);
+    var element = e;
+    element.remove();
+  }
+
   /**
    * Search the room for new tools
    */
@@ -45,10 +51,10 @@ export class Player {
   * @param {Tool} tool tool to register
   */
   displayFoundTool = (tool) => {
-    const toolElement = document.createElement('button')
+    const toolElement = document.createElement("BUTTON")
     Object.assign(toolElement, {
       classList: ['action-button'],
-      onclick: this.addToInventory(tool),
+      onclick: () => this.onClickAddToInventory(toolElement,tool),
       innerHTML: `Pick up ${tool.name}`,
     })
     toolInRoom.append(toolElement)
@@ -62,9 +68,9 @@ export class Player {
     const toolElement = document.createElement('button')
     Object.assign(toolElement, {
       classList: ['action-button'],
-      onclick: this.useTool(tool),
-      id: tool.name,
-      innerHTML: `${tool.name}`,
+      onclick: () => this.useTool(newTool),
+      id: newTool.name,
+      innerHTML: `${newTool.name}`,
     })
     inventory.append(toolElement)
     this.inventory.push(newTool);
@@ -78,15 +84,15 @@ export class Player {
    * @param {Tool} tool - The tool we want to use
    */
   useTool(tool) {
-    if (tool.room === this.currentRoom) {
-      say(tool.useMessage);
-      tool.movement.isAllowed = true;
-      tool.changeRoomDescription();
-      tool.delete(this.name)
+    console.log(tool.roomId,this.currentRoom)
+    if (tool.roomId === +this.currentRoom.name) {
+      say(tool.useMessage)
+      tool.use(this.currentRoom)
+      tool.delete(tool.name)
       this.removeFromInventory(tool)
       this.checkEmptyInventory()
     }
-    else say(this.errorMessage);
+    else say(tool.errorMessage);
   }
 
   checkEmptyInventory() {
