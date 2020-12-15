@@ -59,6 +59,8 @@ export class Player {
     } else if (+this.currentRoom.name === 20) {
       say("You feel you are about to find your way out. But the forest still have surprises for you.")
       this.displayEndingEnigma();
+    } else if (+this.currentRoom.name === 4) {
+      say(tool.description)
     } else {
       say('There is nothing worth of attention here')
     }

@@ -69,9 +69,9 @@ export const tools = {
     "Ulysse's Bow" : new Tool({
         name: "Ulysse's Bow",
         roomId: 2,
-        description: 'At the back of the room a large wooden arch stands above an old fireplace. It is brightly decorated with ivory, but it retains a simple appearance.',
+        description: 'At the back of the room a large wooden bow stands above an old fireplace. It is brightly decorated with ivory, but it retains a simple appearance.',
         errorMessage: "You try to bend the bow. But the legend did not lie, the bowstring is too stiff",
-        useMessage: "These weird birds where Stymphalian birds, man-eating birds with beaks made of bronze and sharp metallic feathers they could launch at their victims. The rattle was build by Hephaistos is order to make them flee. They disapear from you sight.",
+        useMessage: "You bend the bow with all your might, and shoot accross the nine hoops straight to the target. Paving stones appear where the pit once was",
         direction: DIRECTIONS.DOWN,
     }),
     "Lever" : new Tool({
@@ -81,6 +81,11 @@ export const tools = {
         errorMessage: "GAME OVER",
         useMessage: "It seems that nothing has happened...",
         direction: DIRECTIONS.LEFT,
-    })
+    }),
+    "Fake Tool" : new Tool({
+        roomId: null,
+        description: 'As you get closer to the first Golden sphere in the middle of the room, you notice the sphinx is drawn on its surface.'
+        + 'You are approaching the second golden sphere. Half erased, you seem to see a drawing of a man whose legs merge into a horse.',
+    }),
 
 }
