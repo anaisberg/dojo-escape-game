@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ESCAPE THE FOREST</title>
+    <title>THE FOREST</title>
     <link href="./assets/sanitize.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
@@ -61,7 +61,17 @@
         </div>
       </div>
 
-      <h1 class="title">ESCAPE THE FOREST</h1>
+      <div id="lostModal" class="modal">
+        <div class="modal-content">
+          <p class="modal-text">You didn't made in in time. Sorry.</p>
+          <br>
+          <p class="modal-text">The only way out is to try again.</p>
+          <br>
+          <button class="modal-button" onClick="window.location.reload();">restart game</button>
+        </div>
+      </div>
+
+      <h1 class="title">THE FOREST</h1>
       <div class="interface">
 
         <div class="action-container">
@@ -97,6 +107,7 @@
           <p class="speak" id="text"></p>
           <p class="speak" id="describe"></p>
           <div class="room-tools" id="room-tools"></div>
+          <button class="timer" id="timer"></button>
           <button class="restart" onClick="window.location.reload();">restart game</button>
         </div>
 

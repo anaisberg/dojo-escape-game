@@ -110,6 +110,24 @@ body {
   transition: all 0.3s;
 }
 
+.timer {
+  background-color: rgba(0,0,0,0.3);
+  border: 0.1rem solid white;
+  border-radius: 0.12rem;
+  bottom: 50px;
+  box-sizing: border-box;
+  color: white;
+  font-family: sans-serif;
+  font-weight: 300;
+  left: 30%;
+  margin: 6px;
+  padding: 0.35rem 1.2rem;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */

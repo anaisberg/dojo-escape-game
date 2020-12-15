@@ -2,6 +2,7 @@
 const modal = document.getElementById("myModal");
 export const sphinxModal = document.getElementById("sphinxModal");
 export const lastModal = document.getElementById("lastModal");
+export const lostModal = document.getElementById("lostModal");
 
 modal.style.display = "none";
 
@@ -52,6 +53,10 @@ export const validateLastAnswer = () => {
 
 export const openEnding = () => {
   endingModal.style.display = "block";
+}
+
+export const openGameOver = () => {
+  lostModal.style.display = "block";
 }
 
 

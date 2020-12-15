@@ -5,6 +5,7 @@ import { askForPlayerName,
   validateName,
   validateAnswerButton,
   validateLastAnswerButton,
+  openGameOver,
 } from './Interface/InteractionModal'
 import { roomsMap } from './assets/config/rooms';
 
@@ -59,7 +60,21 @@ const main = () => {
   }
 
   const wakeUp = () => {
-    setTimeout(() => say(`Hello ${player.name}. You just woke up in the middle of a strange forest. You don't remember anything, but you know that you have to get out of here.`), 1200)
+    setTimeout(() => say(`Hello ${player.name}. You just woke up in the middle of a strange forest. You don't remember anything, but you know that you have to get out of here. <br> <br> Be careful, you only have 45 minutes before you black out.`), 1200)
+    startTimer();
+    setTimeout(() => {
+      openGameOver()
+    }, 2700000);
+  }
+
+  const startTimer = () => {
+    var seconds = 0;
+    var x = setInterval(function() {
+      var min = Math.round(seconds / 60);
+      var s = seconds % 60;
+      seconds +=1 
+      document.getElementById("timer").innerHTML =  min + "m " + s + "s ";
+    }, 1000);
   }
 }
 
