@@ -12,7 +12,7 @@ export const tools = {
     }),
     'Vine' : new Tool({
         name: 'vine',
-        roomId: 7,
+        roomId: 23,
         description: "You pool the vines that hang from the trees. This vine no longer seems to be attached to its tree.",
         errorMessage: "What do you expect to do with that",
         useMessage : "You throw the vine at the large branch right above you. It seems reliable. After a quick run, you jump off into the void and land onto the otherside.",

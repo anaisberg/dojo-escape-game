@@ -124,7 +124,7 @@ export const roomsMap = [{
     yPlayer: 381,
     description:"Ana boT fatale",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 8, blockingMessage: `You walk towards the birds, but as you get closer to their nest, their horrifying sound stun. You take a step back.` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: 8, blockingMessage: `You walk towards the birds, but as you get closer to their nest, their horrifying sound stun. You take a step back.` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south. There is no path` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: 4, blockingMessage: `An old ruin stands in front of you. You don't see any opening this way.`, okMessage:'A stair appeared out of nowhere. You climb the stair to get in the old ruin' }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 14, blockingMessage: `You can't go east` }),
@@ -177,7 +177,7 @@ export const roomsMap = [{
     description: "In the darkness of the cavern, small lights are constellated on the ceiling.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 12, blockingMessage: `You can't go north`, okMessage:'You walk north towards the light, out of the cave !' }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 14, blockingMessage: `You don't see much in the darkness, but you still seem to hear grunts. Curious you approach. A huge three-headed dog greets you ferociously. You take your legs to your neck.`, okMessage:'You carefully walk past the sleeping cerberus'}),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: 14, blockingMessage: `You don't see much in the darkness, but you still seem to hear grunts. Curious you approach. A huge three-headed dog greets you ferociously. You take your legs to your neck.`, okMessage:'You carefully walk past the sleeping cerberus'}),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You approach the wall of the cave and notice that the small lights were in fact shards of mirrors.` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `In the dim light of the entrance, you notice that a huge fresco decorates this part of the cave. It represents men sitting in a cave observing shadows, and a half-man, half-hose creature waiting outside of it. It reminds you of something, but you can't get your hands on it. ` }),
     ],
