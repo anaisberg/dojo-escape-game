@@ -1,8 +1,7 @@
 import { Player, toolInRoom } from './Player'
 import { Room } from './Room'
 import { drawRoom, movePlayer } from '../Interface/Map'
-import { Action, MoveAction } from './Action'
-import { clearActions, addEnabledActions } from '../Interface/Action'
+import { Action } from './Action'
 import { say, describe } from '../Interface/Text'
 import { Movement } from './Movement'
 
@@ -24,21 +23,6 @@ export class World {
 
   constructor(name) {
     this.name = name
-  }
-
-  /**
-   * @private
-   * @param {()=>Promise<void> | undefined} callback to do on action click
-   */
-  wrapCallbackForAutomaticActionsDisplay(callback) {
-    return () => {
-      clearActions()
-      return (callback ? callback() : Promise.resolve(null))
-        .then(() => {
-          addEnabledActions(this)
-        })
-        .catch(console.error)
-    }
   }
 
   /**

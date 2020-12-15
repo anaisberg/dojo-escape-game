@@ -2,10 +2,9 @@ import { Room } from '../Game/Room'
 import { Player } from '../Game/Player'
 
 const canvasId = 'map'
-const scaling = 74
+const scaling = 76
 const playerXStart = 53
 const playerYStart  = 60
-const playerLight = 15
 
 const mapCanvas = document.getElementById(canvasId)
 const mapContext = mapCanvas.getContext('2d')
