@@ -1,5 +1,5 @@
 import { roomsMap } from '../assets/config/rooms'
-import { openSphinxEnigma, validateSphinxAnswer, sphinxModal } from '../Interface/InteractionModal'
+import { openSphinxEnigma, validateSphinxAnswer, sphinxModal, openEnding } from '../Interface/InteractionModal'
 
 import { say } from '../Interface/Text'
 import { Room } from './Room'
