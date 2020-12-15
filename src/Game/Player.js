@@ -59,8 +59,10 @@ export class Player {
   displayFoundTool = (tool) => {
     let callback;
     if (tool.name === 'Infinite Lever') {
+      console.log(tool.name)
+      console.log(roomsMap[9])
       callback = () => {
-        tool.use(roomsMap[4])
+        tool.use(roomsMap[9])
         say(tool.useMessage)
       }
     } else {

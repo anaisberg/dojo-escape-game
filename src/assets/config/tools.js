@@ -2,7 +2,7 @@ import { DIRECTIONS } from '../../Game/Movement'
 import { Tool, Movement } from '../../Game/Tool'
 
 export const tools = {
-    'axe' : new Tool({
+    'Axe' : new Tool({
         name: 'axe',
         roomId : 12,
         description:"In the middle of the clearing stands an axe driven into a stump. After all the far-fetched objects invented by the developers, they put us a simple axe. And in a room that doesn't seem to serve any purpose whatsoever.",
@@ -10,7 +10,7 @@ export const tools = {
         useMessage : "You swing that huge axe of yours. Those bamboos will not last long. The path is clear, you step accross the opening you have made",
         direction: DIRECTIONS.LEFT
     }),
-    'vine' : new Tool({
+    'Vine' : new Tool({
         name: 'vine',
         roomId: 7,
         description: "You pool the vines that hang from the trees. This vine no longer seems to be attached to its tree.",
@@ -18,7 +18,7 @@ export const tools = {
         useMessage : "You throw the vine at the large branch right above you. It seems reliable. After a quick run, you jump off into the void and land onto the otherside.",
         direction: DIRECTIONS.DOWN
     }),
-    'drachma' : new Tool({
+    'Drachma' : new Tool({
         name: 'drachma',
         roomId: 21,
         description:"You find a quite heavy leather purse. What a disapointment in opening it. Only polished stones... Ah isn't that a shiny gold coin ?",
