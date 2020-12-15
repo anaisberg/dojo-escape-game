@@ -3,23 +3,21 @@ import { say } from './Interface/Text'
 import { askForPlayerName, validateButton, validateName, validateAnswerButton } from './Interface/InteractionModal'
 import { roomsMap } from './assets/config/rooms';
 
-askForPlayerName();
-
 const main = () => {
   const world = new World('World')
   const rooms = [];
   let player;
-
-  for (let roomParams of roomsMap) {
-    const room = world.createRoom(roomParams);
-    rooms.push(room);
-  }
 
   askForPlayerName();
   validateButton.onclick = () => {
     const name = validateName();
     player = world.createPlayer(name);
     wakeUp();
+  }
+  
+  for (let roomParams of roomsMap) {
+    const room = world.createRoom(roomParams);
+    rooms.push(room);
   }
 
   validateAnswerButton.onclick = () => player.validateSphinxAnswer();
@@ -57,7 +55,7 @@ const main = () => {
   }
 
   const wakeUp = () => {
-    setTimeout(() => say(`${player.name} wakes up.`), 1200)
+    setTimeout(() => say(`Hello ${player.name}. You just woke up in the middle of a strange forest. You don't remember anything, but you know that you have to get out of here.`), 1200)
   }
 }
 

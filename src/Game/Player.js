@@ -1,5 +1,6 @@
 import { roomsMap } from '../assets/config/rooms'
 import { openSphinxEnigma, validateSphinxAnswer, sphinxModal } from '../Interface/InteractionModal'
+
 import { say } from '../Interface/Text'
 import { Room } from './Room'
 import { Tool } from './Tool'
@@ -46,8 +47,10 @@ export class Player {
       this.displayFoundTool(tool)
     } else if (+this.currentRoom.name === 19) {
       say('There is nothing to help you here but your own brain. The sphinx standing in the way wants to test your capacities. Are you ready to give it a try?')
-      this.displaySphinxEnigma()
-    } else {
+      this.displaySphinxEnigma();
+    } else if (+this.currentRoom.name === 20) {
+      openEnding();
+    }else {
       say('There is nothing worth of attention here')
     }
   }
@@ -86,8 +89,9 @@ export class Player {
     })
     toolInRoom.append(btnElement)
   }
+
   /**
-   * Add tool to playe rinventory
+   * Add tool to player inventory
    * @param {Tool} newTool
    */
   addToInventory(newTool) {

@@ -23,7 +23,7 @@ export class Room {
     this.yPos = yPos
     this.xPlayer = xPlayer
     this.yPlayer = yPlayer
-    this.color = color ? color : randomColor()
+    this.color = color
     this.moves = moves
     this.description = description
     this.tool = tool
