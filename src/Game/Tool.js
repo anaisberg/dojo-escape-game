@@ -41,7 +41,6 @@ export class Tool {
         currentRoom.moves[3].isAllowed = true;
         break;
     }
-    world.changeRoomDescription(currentRoom);
     this.delete(this.name);
   }
 

@@ -5,8 +5,8 @@ import { Tool } from './Tool'
 
 export const toolInRoom = document.getElementById('room-tools')
 const inventory = document.getElementById('inventory')
-const noToolText = document.createElement('p')
-Object.assign(noToolText, {
+const noTool = document.createElement('p')
+Object.assign(noTool, {
   classList: ['speak'],
   id: 'no-tool',
   innerHTML: `You don't have anything in your bag yet`,
@@ -88,18 +88,15 @@ export class Player {
   }
   
   removeFromInventory(toolToRemove) {
-    this.inventory = this.inventory.filter(item => item!== toolToRemove)
+    this.inventory = this.inventory.filter(item => item !== toolToRemove)
     this.renderInventory()
   }
   
   renderInventory() {
-    if (this.inventory.length === 0) {
-      toolInBag.append(noToolText)
-    } else {
-      const noToolText = document.getElementById('no-tool')
-      if (noToolText) noToolText.remove()
-    }
     inventory.innerHTML = null;
+    if (this.inventory.length === 0) {
+      inventory.append(noTool)
+    }
     this.inventory.forEach(tool => {
       const toolElement = document.createElement('button')
       Object.assign(toolElement, {
