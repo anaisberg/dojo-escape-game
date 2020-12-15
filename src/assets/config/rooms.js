@@ -58,7 +58,7 @@ export const roomsMap = [{
     yPos: 4,
     xPlayer: 95,
     yPlayer: 384,
-    description:"The place is circular. In the middle is a huge golden sphere. Around it revolve 8 smaller spheres. It is certainly a representation of the solar system. At one end of the piece is another golden sphere.",
+    description:"The place is circular. In the middle is a huge golden sphere. Around it revolve 8 smaller spheres. It is certainly a representation of the solar system. At one end of the piece is another golden sphere. There is a centaur drawn on it.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south` }),

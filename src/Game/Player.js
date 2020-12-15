@@ -1,5 +1,13 @@
 import { roomsMap } from '../assets/config/rooms'
-import { openSphinxEnigma, validateSphinxAnswer, sphinxModal, openEnding } from '../Interface/InteractionModal'
+import {
+  openSphinxEnigma,
+  openLastEnigma,
+  validateSphinxAnswer,
+  validateLastAnswer,
+  sphinxModal,
+  lastModal,
+  openEnding
+} from '../Interface/InteractionModal'
 
 import { say } from '../Interface/Text'
 import { Room } from './Room'
@@ -30,7 +38,7 @@ export class Player {
     this.inventory = []
   }
 
-  onClickAddToInventory = (e,tool) => {
+  onClickAddToInventory = (e, tool) => {
     this.addToInventory(tool);
     var element = e;
     element.remove();
@@ -40,7 +48,7 @@ export class Player {
    * Search the room for new tools
    */
   searchRoom() {
-    toolInRoom.innerHTML = null; 
+    toolInRoom.innerHTML = null;
     const tool = this.currentRoom.tool
     if (tool) {
       say(tool.description)
@@ -49,12 +57,13 @@ export class Player {
       say('There is nothing to help you here but your own brain. The sphinx standing in the way wants to test your capacities. Are you ready to give it a try?')
       this.displaySphinxEnigma();
     } else if (+this.currentRoom.name === 20) {
-      openEnding();
-    }else {
+      say("You feel you are about to find your way out. But the forest still have surprises for you.")
+      this.displayEndingEnigma();
+    } else {
       say('There is nothing worth of attention here')
     }
   }
-  
+
   /**
   * Add an action to the interface
   * @param {Tool} tool tool to register
@@ -88,6 +97,16 @@ export class Player {
     toolInRoom.append(btnElement)
   }
 
+  displayEndingEnigma() {
+    const btnElement = document.createElement('button')
+    Object.assign(btnElement, {
+      classList: ['action-button'],
+      onclick: () => openLastEnigma(),
+      innerHTML: `Get your memories back`,
+    })
+    toolInRoom.append(btnElement)
+  }
+
   /**
    * Add tool to player inventory
    * @param {Tool} newTool
@@ -97,12 +116,12 @@ export class Player {
     this.inventory.push(newTool);
     this.renderInventory();
   }
-  
+
   removeFromInventory(toolToRemove) {
     this.inventory = this.inventory.filter(item => item !== toolToRemove)
     this.renderInventory()
   }
-  
+
   renderInventory() {
     inventory.innerHTML = null;
     if (this.inventory.length === 0) {
@@ -117,7 +136,7 @@ export class Player {
         innerHTML: `${tool.name}`,
       })
       inventory.append(toolElement)
-    }) 
+    })
   }
 
   /**
@@ -125,7 +144,7 @@ export class Player {
    */
   useTool(tool) {
     if (tool.roomId === +this.currentRoom.name) {
-      
+
       say(tool.useMessage)
 
       if (tool.name === 'Fork') {
@@ -141,13 +160,22 @@ export class Player {
 
   validateSphinxAnswer() {
     const isAnswerCorrect = validateSphinxAnswer();
-    console.log(isAnswerCorrect)
     sphinxModal.style.display = "none";
     if (isAnswerCorrect) {
       say('You passed. The Sphinx steps asside and a path appears')
       this.currentRoom.moves[0].isAllowed = true;
     } else {
       say('The Sphinx is disappointed by your answer. Try again later.')
+    }
+  }
+
+  validateLastAnswer() {
+    const isAnswerCorrect = validateLastAnswer();
+    lastModal.style.display = "none";
+    if (isAnswerCorrect) {
+      openEnding()
+    } else {
+      say('You should be ashamed. It is absolutely not me.')
     }
   }
 }

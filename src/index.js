@@ -1,6 +1,11 @@
 import { World } from './Game/World'
 import { say } from './Interface/Text'
-import { askForPlayerName, validateButton, validateName, validateAnswerButton } from './Interface/InteractionModal'
+import { askForPlayerName,
+  validateButton,
+  validateName,
+  validateAnswerButton,
+  validateLastAnswerButton,
+} from './Interface/InteractionModal'
 import { roomsMap } from './assets/config/rooms';
 
 const main = () => {
@@ -21,6 +26,7 @@ const main = () => {
   }
 
   validateAnswerButton.onclick = () => player.validateSphinxAnswer();
+  validateLastAnswerButton.onclick = () => player.validateLastAnswer();
 
   const northButton = document.getElementById('north')
   const southButton = document.getElementById('south')  

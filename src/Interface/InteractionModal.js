@@ -1,6 +1,7 @@
 // Get the modal
 const modal = document.getElementById("myModal");
 export const sphinxModal = document.getElementById("sphinxModal");
+export const lastModal = document.getElementById("lastModal");
 
 modal.style.display = "none";
 
@@ -34,6 +35,21 @@ export const validateSphinxAnswer = () => {
   let correctAnswer = true;
   if (!answer) correctAnswer = false;
   if ((answer !== 'stars') && (answer !== 'star')) correctAnswer = false;
+  return correctAnswer
+}
+
+export const openLastEnigma = () => {
+  lastModal.style.display = "block";
+}
+
+export const validateLastAnswerButton = document.getElementById('validate-last-answer');
+
+export const validateLastAnswer = () => {
+  const input = document.getElementById("last-answer")
+  const answer = input.value.toLowerCase();
+  let correctAnswer = true;
+  if (!answer) correctAnswer = false;
+  if ((answer !== 'centaur') && (answer !== 'centaurus')) correctAnswer = false;
   return correctAnswer
 }
 
