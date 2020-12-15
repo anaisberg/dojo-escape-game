@@ -31,12 +31,12 @@ export const roomsMap = [{
     xPos: 0,
     yPos: 2,
     xPlayer: 97,
-    description: "What a strange room. Cut stones replace the forest seamlessly. It seems that you entered a hall. Torches flicker on the walls, but their weak light does not allow you to understand the layout of the room. A few steps farther, darkness absorbs all the light. Above this darkness, hoops float suspended and seem to be aligned with a target at the bottom of the wall. I think the room branches off to the left, but I can't see anything.",
+    description: "What a strange room. Cut stones replace the forest seamlessly. It seems that you entered a hall. Torches flicker on the walls, but their weak light does not allow you to understand the layout of the room. A few steps farther, darkness absorbs all the light. Above this darkness, hoops float suspended and seem to be aligned with a target at the bottom of the wall. You think the room branches off to the left, but you can't see anything.",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: 3, blockingMessage: `You can't go south` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `You can't go west` }),
-      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 7, blockingMessage: `You can't go east` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `On this wall, a fresco depicts an old man dressed in rags slaying rich nobles with a bow.` }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: 3, blockingMessage: `You can't go south, there is a wall there` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `You can't go west, a large pit prevents you from moving. You believe there is something to do with the hoops and the target but can't figure out why` , okMessage:'You set out on the path that appeared earlier'}),
+      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 7, blockingMessage: `You can't go east`, okMessage:'You stepped out of the hall' }),
     ]
   }, {
     name: '3',

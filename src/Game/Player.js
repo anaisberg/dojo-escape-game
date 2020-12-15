@@ -50,7 +50,10 @@ export class Player {
       this.displaySphinxEnigma();
     } else if (+this.currentRoom.name === 20) {
       openEnding();
-    }else {
+    } else if (+this.currentRoom.name === 4) {
+      say(tool.description)
+    }
+    else {
       say('There is nothing worth of attention here')
     }
   }
@@ -125,7 +128,7 @@ export class Player {
    */
   useTool(tool) {
     if (tool.roomId === +this.currentRoom.name) {
-      
+
       say(tool.useMessage)
 
       if (tool.name === 'Fork') {
