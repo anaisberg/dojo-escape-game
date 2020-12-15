@@ -48,6 +48,7 @@ export const tools = {
         description: "Planted in a corner, you find a kind of worn fork. It is all metal, and the handle is decorated with seahorses. It smells like dried fish.",
         errorMessage: "You could dig your own grave in this austere forest if you are tired to live.",
         useMessage: "You remember that old tale of Hercules cleaning the stables of the king Augias in a day. Hundreds of animals had been depositing their excrement for decades with no one to clean it up. Looking at the barns, you think it could have been worse.After a day work cleaning the stables, you see horses progressively coming taking their place in the stable.",
+        direction: DIRECTIONS.DOWN
     }),
     'Metal Rattle' : new Tool({
         name: 'Metal Rattle',
