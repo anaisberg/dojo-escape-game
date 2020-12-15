@@ -36,6 +36,16 @@ export class World {
   }
 
   /**
+   * re-draw existing rooms
+   */
+  resetRooms() {
+    for (let room of this.rooms) {
+      drawRoom(room)
+    }
+    return this.rooms
+  }
+
+  /**
    * Create a new player
    * @param {string} name the player name
    * @returns {Player} the created player

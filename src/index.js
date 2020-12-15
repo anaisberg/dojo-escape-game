@@ -10,7 +10,6 @@ import { roomsMap } from './assets/config/rooms';
 
 const main = () => {
   const world = new World('World')
-  const rooms = [];
   let player;
 
   askForPlayerName();
@@ -21,8 +20,7 @@ const main = () => {
   }
   
   for (let roomParams of roomsMap) {
-    const room = world.createRoom(roomParams);
-    rooms.push(room);
+    world.createRoom(roomParams);
   }
 
   validateAnswerButton.onclick = () => player.validateSphinxAnswer();
