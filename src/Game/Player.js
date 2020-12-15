@@ -143,9 +143,17 @@ export class Player {
   }
 
   validateSphinxAnswer() {
-    const isAnswerCorrect = validateSphinxAnswer();
-    console.log(isAnswerCorrect)
+    const answer = validateSphinxAnswer();
+    console.log(answer)
     sphinxModal.style.display = "none";
+    let correctAnswer = true;
+    if ((answer !== 'stars') && (answer !== 'star')) correctAnswer = false
+    if ((answer === 'sun') || (answer === 'soleil')) {
+      say('The sun is only one among many...')
+    }
+    if ((answer === 'earth') || (answer === 'terre')){
+      say('Man is not at the center of the world')
+    }
     if (isAnswerCorrect) {
       say('You passed. The Sphinx steps asside and a path appears')
       this.currentRoom.moves[0].isAllowed = true;

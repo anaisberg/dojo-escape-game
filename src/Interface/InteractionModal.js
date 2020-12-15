@@ -31,10 +31,7 @@ export const validateAnswerButton = document.getElementById('validate-answer');
 export const validateSphinxAnswer = () => {
   const input = document.getElementById("answer")
   const answer = input.value.toLowerCase();
-  let correctAnswer = true;
-  if (!answer) correctAnswer = false;
-  if ((answer !== 'stars') && (answer !== 'star')) correctAnswer = false;
-  return correctAnswer
+  return answer
 }
 
 export const openEnding = () => {
