@@ -35,7 +35,7 @@ export const roomsMap = [{
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `On this wall, a fresco depicts an old man dressed in rags slaying rich nobles with a bow.` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: 3, blockingMessage: `You can't go south, there is a wall there` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `You can't go west, a large pit prevents you from moving. You believe there is something to do with the hoops and the target but can't figure out why` , okMessage:'You set out on the path that appeared earlier'}),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `You can't go west, a large pit prevents you from moving. You believe there is something to do with the hoops and the target but can't figure out what` , okMessage:'You set out on the path that appeared earlier'}),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 7, blockingMessage: `You can't go east`, okMessage:'You stepped out of the hall' }),
     ]
   }, {
@@ -46,10 +46,10 @@ export const roomsMap = [{
     yPlayer: 308,
     description: "You stand in a brightly colored clearing. Funny trees with vaulted branches present fruits in the form of flowers in vermeille colors.",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 2, blockingMessage: `You can't go north` }),
-      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south` }),
-      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west` }),
-      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 2, blockingMessage: `You can't go north`, okMessage:"You leave the clearing to reach the ancient hall" }),
+      new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, room: null, blockingMessage: `You can't go south, each time you get to close to those trees, you get sleepy` }),
+      new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west, each time you get to close to those trees, you get sleepy` }),
+      new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east, each time you get to close to those trees, you get sleepy` }),
     ],
     tool: tools["Lotus Fruit"],
   }, {
@@ -58,13 +58,14 @@ export const roomsMap = [{
     yPos: 4,
     xPlayer: 95,
     yPlayer: 384,
-    description:"The place is circular. In the middle is a huge golden sphere. Around it revolve 8 smaller spheres. It is certainly a representation of the solar system. At one end of the piece is another golden sphere. There is a centaur drawn on it.",
+    description:"The place is circular. In the middle is a huge golden sphere. Around it revolve 8 smaller spheres. It is certainly a representation of the solar system. At one end of the piece is another golden sphere.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, blockingMessage: `You can't go west` }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 9, blockingMessage: `You can't go east` }),
-    ]
+    ],
+    tool: tools["Fake Tool"] 
   },
   {
     name: '5',
@@ -84,7 +85,7 @@ export const roomsMap = [{
     yPos: 1,
     xPlayer: 155,
     yPlayer: 175,
-    description: "You arrived in a square place with statues standing on all sides. At each end of the square is a statue.",
+    description: "You arrived in a square place with buildings standing on all sides. At each end of the square is a statue.",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, blockingMessage: `You can't go north, a statue of Zeus is blocking the way` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 7, blockingMessage: `You can't go south` }),
@@ -96,7 +97,7 @@ export const roomsMap = [{
     xPos: 1,
     yPos: 2,
     yPlayer: 233,
-    description: "This forest is really strange, just now big conifers were surrounding me, now it seems that I am in the middle of a jungle. Vines are hanging from the green roof.The forest path has widened. I am at a crossroads, several choices are available to me. ",
+    description: "This forest is really strange, just now big conifers were surrounding me, now it seems that I am in the middle of a jungle. Vines are hanging from the green roof.The forest path has widened. You are at a crossroads, several choices are available to you. ",
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: true, room: 6, blockingMessage: `You can't go north`, okMessage:'You continue north on a path that seems to lead to a small village.' }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south, there is nothing but a dense jungle there` }),
@@ -122,9 +123,9 @@ export const roomsMap = [{
     yPos: 4,
     xPlayer: 167,
     yPlayer: 381,
-    description:"Ana boT fatale",
+    description:"You notice old buildings on the way and decide to stop",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: 8, blockingMessage: `You walk towards the birds, but as you get closer to their nest, their horrifying sound stun. You take a step back.` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: 8, blockingMessage: `You walk towards the birds, but as you get closer to their nest, their horrifying sound dazes you. You take a step back.` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: false, blockingMessage: `You can't go south. There is no path` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: 4, blockingMessage: `An old ruin stands in front of you. You don't see any opening this way.`, okMessage:'A stair appeared out of nowhere. You climb the stair to get in the old ruin' }),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: true, room: 14, blockingMessage: `You can't go east` }),
@@ -260,7 +261,7 @@ export const roomsMap = [{
     name: '20',
     xPos: 4,
     yPos: 0,
-    description: "You find yourself in front of the river. The sandy beach is bigger. There is a boat that floats. It is not swept away by the current, but seems to be waiting for you. There is even a paddle inside it.",
+    description: 'You enter a clearing giving way to the starry sky. The moss on the ground looks comfortable, why not turn off and look for a moment at the sky.',
     moves: [
       new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: null, blockingMessage: `You can't go north` }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 21, blockingMessage: `You can't go south` }),
@@ -272,8 +273,9 @@ export const roomsMap = [{
     xPos: 4,
     yPos: 1,
     yPlayer: 189,
+    description: "You find yourself in front of the river. The sandy beach is bigger. There is a boat that floats. It is not swept away by the current, but seems to be waiting for you. But there is no paddle inside it.",
     moves: [
-      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: 20, blockingMessage: `You can't go north` }),
+      new Movement({ direction: DIRECTIONS.UP, isAllowed: false, room: 20, blockingMessage: `You can't go north, the current is too strong and the water too cold.`, okMessage:'As if the boat knew you need him, after stepping in, he takes you across to the other side' }),
       new Movement({ direction: DIRECTIONS.DOWN, isAllowed: true, room: 22, blockingMessage: `You can't go south` }),
       new Movement({ direction: DIRECTIONS.LEFT, isAllowed: false, room: null, blockingMessage: `You can't go west`}),
       new Movement({ direction: DIRECTIONS.RIGHT, isAllowed: false, room: null, blockingMessage: `You can't go east` }),

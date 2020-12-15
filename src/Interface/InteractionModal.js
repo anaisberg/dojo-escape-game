@@ -44,10 +44,7 @@ export const validateLastAnswerButton = document.getElementById('validate-last-a
 export const validateLastAnswer = () => {
   const input = document.getElementById("last-answer")
   const answer = input.value.toLowerCase();
-  let correctAnswer = true;
-  if (!answer) correctAnswer = false;
-  if ((answer !== 'centaur') && (answer !== 'centaurus')) correctAnswer = false;
-  return correctAnswer
+  return answer
 }
 
 export const openEnding = () => {

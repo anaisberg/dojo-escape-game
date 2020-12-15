@@ -44,13 +44,23 @@ export class Player {
     element.remove();
   }
 
+  onClickUse = (e, tool) => {
+    tool.use(roomsMap[9])
+    say(tool.useMessage)
+    this.currentRoom.tool = null;
+    var element = e;
+    element.remove();
+  }
+
   /**
    * Search the room for new tools
    */
   searchRoom() {
     toolInRoom.innerHTML = null;
     const tool = this.currentRoom.tool
-    if (tool) {
+    if (+this.currentRoom.name===4){
+      say(tool.description)
+    } else if (tool) {
       say(tool.description)
       this.displayFoundTool(tool)
     } else if (+this.currentRoom.name === 19) {
@@ -59,8 +69,6 @@ export class Player {
     } else if (+this.currentRoom.name === 20) {
       say("You feel you are about to find your way out. But the forest still have surprises for you.")
       this.displayEndingEnigma();
-    } else if (+this.currentRoom.name === 4) {
-      say(tool.description)
     } else {
       say('There is nothing worth of attention here')
     }
@@ -72,15 +80,12 @@ export class Player {
   */
   displayFoundTool = (tool) => {
     let callback;
+    const toolElement = document.createElement('button')
     if (tool.name === 'Infinite Lever') {
-      callback = () => {
-        tool.use(roomsMap[9])
-        say(tool.useMessage)
-      }
+      callback = () => this.onClickUse(toolElement, tool)
     } else {
       callback = () => this.onClickAddToInventory(toolElement, tool);
     }
-    const toolElement = document.createElement('button')
     Object.assign(toolElement, {
       classList: ['action-button'],
       onclick: callback,
@@ -163,15 +168,11 @@ export class Player {
   validateSphinxAnswer() {
     const answer = validateSphinxAnswer();
     sphinxModal.style.display = "none";
-    let correctAnswer = true;
-    if ((answer !== 'stars') && (answer !== 'star')) correctAnswer = false
-    else if ((answer === 'sun') || (answer === 'soleil')) {
+    if ((answer === 'sun') || (answer === 'soleil')) {
       say('The sun is only one among many...')
-      correctAnswer = false
-    } else if ((answer === 'earth') || (answer === 'terre')){
+    } else if ((answer === 'earth') || (answer === 'terre')) {
       say('Men are not the center of the world')
-      correctAnswer = false
-    } else if (correctAnswer) {
+    } else if ((answer === 'stars') || (answer === 'star')) {
       say('You passed. The Sphinx steps asside and a path appears')
       this.currentRoom.moves[0].isAllowed = true;
     } else {

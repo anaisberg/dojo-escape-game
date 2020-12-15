@@ -85,7 +85,7 @@ export const tools = {
     "Fake Tool" : new Tool({
         roomId: null,
         description: 'As you get closer to the first Golden sphere in the middle of the room, you notice the sphinx is drawn on its surface.'
-        + 'You are approaching the second golden sphere. Half erased, you seem to see a drawing of a man whose legs merge into a horse.',
+        + 'You are approaching the second golden sphere. Half erased, you guess a drawing of a man whose legs merge into a horse.',
     }),
 
 }
